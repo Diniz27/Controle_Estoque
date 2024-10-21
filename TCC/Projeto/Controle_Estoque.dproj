@@ -1,14 +1,15 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{0EBCA34E-7F02-49BB-B3A2-43A406F800CD}</ProjectGuid>
-        <ProjectVersion>19.5</ProjectVersion>
+        <ProjectVersion>20.1</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Base>True</Base>
         <Config Condition="'$(Config)'==''">Debug</Config>
-        <Platform Condition="'$(Platform)'==''">Win32</Platform>
-        <TargetedPlatforms>1</TargetedPlatforms>
+        <Platform Condition="'$(Platform)'==''">Win64</Platform>
+        <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
         <MainSource>Controle_Estoque.dpr</MainSource>
+        <ProjectName Condition="'$(ProjectName)'==''">Controle_Estoque</ProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
         <Base>true</Base>
@@ -34,6 +35,12 @@
         <Cfg_1>true</Cfg_1>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win64)'!=''">
+        <Cfg_1_Win64>true</Cfg_1_Win64>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
         <Cfg_2>true</Cfg_2>
         <CfgParent>Base</CfgParent>
@@ -45,9 +52,15 @@
         <Cfg_2>true</Cfg_2>
         <Base>true</Base>
     </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Cfg_2)'=='true') or '$(Cfg_2_Win64)'!=''">
+        <Cfg_2_Win64>true</Cfg_2_Win64>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
-        <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
+        <DCC_DcuOutput>C:\Controle_Estoque\TCC\UNIT\</DCC_DcuOutput>
+        <DCC_ExeOutput>C:\Controle_Estoque\TCC\EXE\</DCC_ExeOutput>
         <DCC_E>false</DCC_E>
         <DCC_N>false</DCC_N>
         <DCC_S>false</DCC_S>
@@ -58,6 +71,8 @@
         <UWP_DelphiLogo44>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_44.png</UWP_DelphiLogo44>
         <UWP_DelphiLogo150>$(BDS)\bin\Artwork\Windows\UWP\delphi_UwpDefault_150.png</UWP_DelphiLogo150>
         <SanitizedProjectName>Controle_Estoque</SanitizedProjectName>
+        <VerInfo_Locale>1046</VerInfo_Locale>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>JvNet;FMXfrLanguageTurkish28;FMXfrLanguageHungarian28;vclwinx;DataSnapServer;ACBr_BPeDabpeESCPOS;ACBr_TCP;ACBr_ONE;dacvcl280;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;ACBr_OpenSSL;frLanguageSpanish28;appanalytics;IndyProtocols;vclx;frLanguageSwiss28;frxe28;dbxcds;vcledge;oraprov280;frLanguageSwedish28;FmxTeeUI;RtmRxDB280;ACBr_BoletoRL;FMXfrLanguageDanish28;DBXFirebirdDriver;fsDB28;FMXfrxe28;ACBr_NFCeECFVirtual;JvAppFrm;frxADO28;FireDACSqliteDriver;DbxClientDriver;FMXfrLanguageSwedish28;CPortLibD2010;frLanguageDanish28;JclVcl;soapmidas;frLanguageDutch28;ACBr_NF3eDANF3eESCPOS;TeeUI;ACBr_PagFor;Jcl;dbexpress;JvManagedThreads;fcx28;frxDBX28;ACBr_Reinf;FMXfrLanguageGerman28;ACBr_NFSeXDanfseFPDF;dacfmx280;inet;ACBr_BoletoFPDF;fqb28;frLanguageLithuanian28;vcltouch;FMXfcxpd28;JvDB;frLanguageRussian28;frGraphicsLibrary28;FireDACDBXDriver;FMXfrLanguageRomanian28;fmxdae;JvCustom;CustomIPTransport;FireDACMSSQLDriver;ACBr_NFSeX;JvSystem;ZCore;FMXfrLanguageBrazil228;ZParseSql;ACBr_NFe;JvControls;ACBr_CTeDacteRL;JvCrypt;JvJans;JvMM;IndySystem;ACBr_Diversos;ACBr_GNREGuiaRL;BossExperts;frLanguageFarsi28;FMXfrLanguageFrench28;ACBr_NFSeXDanfseRL;frLanguageSlovak28;ACBr_SAT;frLanguageChinese28;frControlsLibrary28;JvGlobus;frxQueryBuilder28;FMXfrxADO28;ibxbindings;frxIntIOIndy28;frLanguageHebrew28;FMXfrLanguageLatvian28;fqbADO28;ACBr_CIOT;ACBr_TEFD;JclContainers;FMXfrxCDS28;JvPageComps;vclFireDAC;ACBr_SPED;ACBr_CTe;ACBr_SATWS;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;ACBr_SEF2;ACBr_LCDPR;fqbDBX28;frLanguageArabic28;odacvcl280;ZComponent;frCoreLibrary28;bindcompdbx;frLanguageCatalon28;frxHTML28;rtl;FireDACMySQLDriver;frLanguageBrazil28;FMXfrLanguageSwiss28;frce;ACBr_BPe;FMXfrLanguageArabic28;DBXSqliteDriver;frxDBXQueryBuilder28;frLanguageRomanian28;ACBr_Sintegra;FMXfrLanguageItalian28;DBXSybaseASEDriver;JvRuntimeDesign;ACBr_Serial;ACBr_Comum;ACBr_MDFe;JvXPCtrls;ACBr_NFeDanfeESCPOS;FMXfrLanguageBrazil128;FMXfrLanguageCzech28;vclimg;DataSnapFireDAC;FMXfcxed28;inetdbxpress;FireDAC;JvDocking;JvDlgs;xmlrtl;frLanguageItalian28;FMXfrxDB28;ibxpress;frxPDF28;FMXfsDB28;frLanguageCroatian28;dsnap;FMXfrLanguageSpanish28;JvCmp;fsADO28;FireDACDb2Driver;FMXfrxFD28;DBXOracleDriver;FMXfsADO28;DBXInformixDriver;vclib;ACBr_SATECFVirtual;fmxobj;bindcompvclsmp;DataSnapNativeClient;FMXfrLanguageTaiwan28;DatasnapConnectorsFreePascal;FMXfrLanguagePolish28;frLanguageUkrainian28;ACBr_NF3e;ACBr_PAF;ACBr_OpenDelivery;ACBr_NFeDanfeFPDF;ACBr_SPEDImportar;emshosting;frADODataLibrary28;FireDACCommonDriver;ACBr_ADRCST;ACBr_MTER;IndyIPClient;FMXfrLanguageLithuanian28;dac280;bindcompvclwinx;ACBr_Convenio115;frLanguageBrazil128;emsedge;bindcompfmx;odac280;frLanguageFrench28;FMXfrLanguageCatalon28;JvBands;inetdb;ibmonitor;frxSM28;FireDACASADriver;ACBr_LFD;frLanguageLatvian28;Tee;vclactnband;frxIntIO28;fmxFireDAC;FMXfrx28;FireDACInfxDriver;frLanguageJapanese28;DBXMySQLDriver;frSmartMemo28;frLanguageSerbian28;VclSmp;ACBr_Ponto;DataSnapCommon;JvPascalInterpreter;FMXfrLanguageRussian28;fmxase;FMXfrLanguageSlovene28;frx28;JvPluginSystem;FMXfrLanguageHebrew28;DBXOdbcDriver;JvTimeFramework;dbrtl;FMXfrLanguageCroatian28;FireDACOracleDriver;ACBr_NFSeDanfseRL;odacfmx280;ACBr_NFSe;TeeDB;ACBre_Social;FMXfrLanguageIndonesian28;FireDACMSAccDriver;FMXfrLanguageBulgarian28;FMXfrLanguageSerbian28;DataSnapIndy10ServerTransport;JclDeveloperTools;fqbSM28;frLanguagePortuguese28;frLanguageBulgarian28;DataSnapConnectors;ACBr_ANe;ACBr_SATExtratoRL;vcldsnap;DBXInterBaseDriver;frxDB28;FireDACMongoDBDriver;frLocalizationLibrary28;JvWizards;frLanguagePolish28;ACBR_DeSTDA;FMXfrLanguageBrazil28;FMXfcxd28;ACBr_GNRE;FMXfrLanguageGreek28;ACBr_EDI;FireDACTDataDriver;FMXfrLocalizationLibrary28;frLanguageTaiwan28;vcldb;ACBr_Integrador;ACBr_PIXCD;frLanguageGerman28;JvCore;fs28;frLanguageIndonesian28;bindcomp;RtmRxCtl280;FMXfrLanguageSlovak28;IndyCore;RESTBackendComponents;ZPlain;frLanguageBrazil228;FMXfrCoreLibrary28;frxADOQueryBuilder28;FMXfs28;fcxp28;FireDACADSDriver;frLanguageHungarian28;RESTComponents;IndyIPServer;vcl;dsnapxml;adortl;dsnapcon;DataSnapClient;DataSnapProviderClient;ACBr_MDFeDamdfeRL;JvDotNetCtrls;JvHMI;FMXfrLanguageChinese28;FMXfrLanguageDutch28;FMXfrLanguageFarsi28;FMXfrLanguagePortuguese28;DBXDb2Driver;FMXfrLanguageUkrainian28;frxcs28;FMXfrLanguageJapanese28;ACBr_Boleto;ULayoutPackage;emsclientfiredac;FireDACPgDriver;FireDACDSDriver;JvPrintPreview;ACBr_BlocoX;ACBr_SATExtratoESCPOS;tethering;JvStdCtrls;frLanguageSlovene28;crcontrols280;ZDbc;bindcompvcl;ACBr_GTIN;frLanguageCzech28;fcxe28;frLanguageGreek28;CloudService;DBXSybaseASADriver;ACBr_OFX;frLanguageTurkish28;FMXfrxDBX28;ACBr_PAFNFCe;FMXTee;ACBr_DebitoAutomatico;ACBr_NFeDanfeRL;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
@@ -67,9 +82,16 @@
         <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
+        <AppDPIAwarenessMode>none</AppDPIAwarenessMode>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win64)'!=''">
         <DCC_UsePackage>FMXfrLanguageTurkish28;FMXfrLanguageHungarian28;vclwinx;DataSnapServer;fmx;vclie;DbxCommonDriver;bindengine;IndyIPCommon;VCLRESTComponents;DBXMSSQLDriver;FireDACCommonODBC;emsclient;frLanguageSpanish28;appanalytics;IndyProtocols;vclx;frLanguageSwiss28;frxe28;dbxcds;vcledge;frLanguageSwedish28;FmxTeeUI;FMXfrLanguageDanish28;DBXFirebirdDriver;fsDB28;FMXfrxe28;frxADO28;FireDACSqliteDriver;DbxClientDriver;FMXfrLanguageSwedish28;frLanguageDanish28;soapmidas;frLanguageDutch28;TeeUI;dbexpress;fcx28;frxDBX28;FMXfrLanguageGerman28;inet;fqb28;frLanguageLithuanian28;vcltouch;FMXfcxpd28;frLanguageRussian28;frGraphicsLibrary28;FireDACDBXDriver;FMXfrLanguageRomanian28;fmxdae;CustomIPTransport;FireDACMSSQLDriver;ZCore;FMXfrLanguageBrazil228;ZParseSql;IndySystem;frLanguageFarsi28;FMXfrLanguageFrench28;frLanguageSlovak28;frLanguageChinese28;frControlsLibrary28;frxQueryBuilder28;FMXfrxADO28;ibxbindings;frxIntIOIndy28;frLanguageHebrew28;FMXfrLanguageLatvian28;fqbADO28;FMXfrxCDS28;vclFireDAC;FireDACCommon;DataSnapServerMidas;FireDACODBCDriver;emsserverresource;fqbDBX28;frLanguageArabic28;ZComponent;frCoreLibrary28;bindcompdbx;frLanguageCatalon28;frxHTML28;rtl;FireDACMySQLDriver;frLanguageBrazil28;FMXfrLanguageSwiss28;FMXfrLanguageArabic28;DBXSqliteDriver;frxDBXQueryBuilder28;frLanguageRomanian28;FMXfrLanguageItalian28;DBXSybaseASEDriver;FMXfrLanguageBrazil128;FMXfrLanguageCzech28;vclimg;DataSnapFireDAC;FMXfcxed28;inetdbxpress;FireDAC;xmlrtl;frLanguageItalian28;FMXfrxDB28;ibxpress;frxPDF28;FMXfsDB28;frLanguageCroatian28;dsnap;FMXfrLanguageSpanish28;fsADO28;FireDACDb2Driver;FMXfrxFD28;DBXOracleDriver;FMXfsADO28;DBXInformixDriver;vclib;fmxobj;bindcompvclsmp;DataSnapNativeClient;FMXfrLanguageTaiwan28;DatasnapConnectorsFreePascal;FMXfrLanguagePolish28;frLanguageUkrainian28;emshosting;frADODataLibrary28;FireDACCommonDriver;IndyIPClient;FMXfrLanguageLithuanian28;bindcompvclwinx;frLanguageBrazil128;emsedge;bindcompfmx;frLanguageFrench28;FMXfrLanguageCatalon28;inetdb;ibmonitor;frxSM28;FireDACASADriver;frLanguageLatvian28;Tee;vclactnband;frxIntIO28;fmxFireDAC;FMXfrx28;FireDACInfxDriver;frLanguageJapanese28;DBXMySQLDriver;frSmartMemo28;frLanguageSerbian28;VclSmp;DataSnapCommon;FMXfrLanguageRussian28;fmxase;FMXfrLanguageSlovene28;frx28;FMXfrLanguageHebrew28;DBXOdbcDriver;dbrtl;FMXfrLanguageCroatian28;FireDACOracleDriver;TeeDB;FMXfrLanguageIndonesian28;FireDACMSAccDriver;FMXfrLanguageBulgarian28;FMXfrLanguageSerbian28;DataSnapIndy10ServerTransport;fqbSM28;frLanguagePortuguese28;frLanguageBulgarian28;DataSnapConnectors;vcldsnap;DBXInterBaseDriver;frxDB28;FireDACMongoDBDriver;frLocalizationLibrary28;frLanguagePolish28;FMXfrLanguageBrazil28;FMXfcxd28;FMXfrLanguageGreek28;FireDACTDataDriver;FMXfrLocalizationLibrary28;frLanguageTaiwan28;vcldb;frLanguageGerman28;fs28;frLanguageIndonesian28;bindcomp;FMXfrLanguageSlovak28;IndyCore;RESTBackendComponents;ZPlain;frLanguageBrazil228;FMXfrCoreLibrary28;frxADOQueryBuilder28;FMXfs28;fcxp28;FireDACADSDriver;frLanguageHungarian28;RESTComponents;IndyIPServer;vcl;dsnapxml;adortl;dsnapcon;DataSnapClient;DataSnapProviderClient;FMXfrLanguageChinese28;FMXfrLanguageDutch28;FMXfrLanguageFarsi28;FMXfrLanguagePortuguese28;DBXDb2Driver;FMXfrLanguageUkrainian28;frxcs28;FMXfrLanguageJapanese28;emsclientfiredac;FireDACPgDriver;FireDACDSDriver;tethering;frLanguageSlovene28;ZDbc;bindcompvcl;frLanguageCzech28;fcxe28;frLanguageGreek28;CloudService;DBXSybaseASADriver;frLanguageTurkish28;FMXfrxDBX28;FMXTee;soaprtl;soapserver;FireDACIBDriver;$(DCC_UsePackage)</DCC_UsePackage>
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;$(DCC_Namespace)</DCC_Namespace>
+        <BT_BuildType>Debug</BT_BuildType>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>CompanyName=;FileDescription=$(MSBuildProjectName);FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <Manifest_File>$(BDS)\bin\default_app.manifest</Manifest_File>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1)'!=''">
         <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
@@ -89,6 +111,11 @@
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
         <VerInfo_Locale>1033</VerInfo_Locale>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+    </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
         <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
@@ -96,6 +123,11 @@
         <DCC_DebugInformation>0</DCC_DebugInformation>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_Win64)'!=''">
         <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
     </PropertyGroup>
     <ItemGroup>
@@ -116,6 +148,14 @@
             <Form>FrmLogin</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Forms\UFrmPadrao.pas">
+            <Form>FrmPadrao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Forms\UFrmPessoas.pas">
+            <Form>FrmPessoas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -134,10 +174,8 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcboffice2k280.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\bcbofficexp280.bpl">Embarcadero C++Builder Office XP Servers Package</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k280.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp280.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
+                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
                 <Source>
                     <Source Name="MainSource">Controle_Estoque.dpr</Source>
@@ -147,6 +185,18 @@
                 <DeployFile LocalName="..\EXE\Controle_Estoque.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>Controle_Estoque.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\EXE\Controle_Estoque.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win64">
+                        <RemoteName>Controle_Estoque.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\EXE\Controle_Estoque.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64">
+                        <RemoteName>Controle_Estoque.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -240,6 +290,16 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
+                <DeployClass Name="AndroidSplashImageDefV21">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-anydpi-v21</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\drawable-anydpi-v21</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
                 <DeployClass Name="AndroidSplashStyles">
                     <Platform Name="Android">
                         <RemoteDir>res\values</RemoteDir>
@@ -260,6 +320,66 @@
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
+                <DeployClass Name="AndroidSplashStylesV31">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values-v31</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\values-v31</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_AdaptiveIcon">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-anydpi-v26</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\drawable-anydpi-v26</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_AdaptiveIconBackground">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_AdaptiveIconForeground">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_AdaptiveIconMonochrome">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_AdaptiveIconV33">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-anydpi-v33</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\drawable-anydpi-v33</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
                 <DeployClass Name="Android_Colors">
                     <Platform Name="Android">
                         <RemoteDir>res\values</RemoteDir>
@@ -267,6 +387,16 @@
                     </Platform>
                     <Platform Name="Android64">
                         <RemoteDir>res\values</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_ColorsDark">
+                    <Platform Name="Android">
+                        <RemoteDir>res\values-night-v21</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\values-night-v21</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
@@ -437,6 +567,56 @@
                     </Platform>
                     <Platform Name="Android64">
                         <RemoteDir>res\values</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_VectorizedNotificationIcon">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-anydpi-v24</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\drawable-anydpi-v24</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_VectorizedSplash">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\drawable</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_VectorizedSplashDark">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-night-anydpi-v21</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\drawable-night-anydpi-v21</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_VectorizedSplashV31">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-anydpi-v31</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\drawable-anydpi-v31</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                </DeployClass>
+                <DeployClass Name="Android_VectorizedSplashV31Dark">
+                    <Platform Name="Android">
+                        <RemoteDir>res\drawable-night-anydpi-v31</RemoteDir>
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Android64">
+                        <RemoteDir>res\drawable-night-anydpi-v31</RemoteDir>
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
@@ -678,6 +858,9 @@
                         <Operation>1</Operation>
                     </Platform>
                     <Platform Name="Win64">
+                        <Operation>1</Operation>
+                    </Platform>
+                    <Platform Name="Win64x">
                         <Operation>1</Operation>
                     </Platform>
                 </DeployClass>
@@ -972,10 +1155,11 @@
                 <ProjectRoot Platform="OSXARM64" Name="$(PROJECTNAME).app"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
+                <ProjectRoot Platform="Win64x" Name="$(PROJECTNAME)"/>
             </Deployment>
             <Platforms>
                 <Platform value="Win32">True</Platform>
-                <Platform value="Win64">False</Platform>
+                <Platform value="Win64">True</Platform>
             </Platforms>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>

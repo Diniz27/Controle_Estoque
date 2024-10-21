@@ -102,7 +102,7 @@ begin
 
   try
 
-    Dm := TDm.Create(Application);
+//    Dm := TDm.Create(Application);
 
     QryLogin.Close;
 
@@ -116,7 +116,6 @@ begin
     else
     begin
       ExibeMsg('Usuario não encontrado.');
-      Dm:=nil;
     end;
   end;
 end;

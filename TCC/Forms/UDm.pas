@@ -35,7 +35,7 @@ uses
 procedure TDm.DataModuleCreate(Sender: TObject);
 var
   arquivoINI: TIniFile;
-  user, password, database, auxError, driver : string;
+  user, password, database, auxError, driver, conect : string;
 begin
   if FDconexao.Connected then
     FDconexao.Connected:= False;
@@ -45,8 +45,10 @@ begin
   password:= arquivoINI.ReadString('Controle_Estoque','password','');
   database:= arquivoINI.ReadString('Controle_Estoque','Database','');
   driver:= arquivoINI.ReadString('Controle_Estoque','Driver','');
+  conect:= arquivoINI.ReadString('Controle_Estoque', 'Conect','');
 
   try
+    FDPhysFBDriverLink1.VendorLib := conect;
     FDconexao.Params.Strings[0] := 'User_Name='+ user;
     FDconexao.Params.Strings[1] := 'Password='+ password;
     FDconexao.Params.Strings[2] := 'Database='+ database;
