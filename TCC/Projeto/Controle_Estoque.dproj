@@ -156,6 +156,15 @@
             <Form>FrmPessoas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Forms\UFrmPesqPessoas.pas">
+            <Form>FrmPesqPessoas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Forms\UFrmCadPessoas.pas">
+            <Form>FrmCadPessoas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Forms\UValidaDados.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

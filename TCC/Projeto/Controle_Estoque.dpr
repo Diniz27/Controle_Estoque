@@ -7,7 +7,10 @@ uses
   Global in '..\Forms\Global.pas',
   UFrmLogin in '..\Forms\UFrmLogin.pas' {FrmLogin},
   UFrmPadrao in '..\Forms\UFrmPadrao.pas' {FrmPadrao},
-  UFrmPessoas in '..\Forms\UFrmPessoas.pas' {FrmPessoas};
+  UFrmPessoas in '..\Forms\UFrmPessoas.pas' {FrmPessoas},
+  UFrmPesqPessoas in '..\Forms\UFrmPesqPessoas.pas' {FrmPesqPessoas},
+  UFrmCadPessoas in '..\Forms\UFrmCadPessoas.pas' {FrmCadPessoas},
+  UValidaDados in '..\Forms\UValidaDados.pas';
 
 {$R *.res}
 

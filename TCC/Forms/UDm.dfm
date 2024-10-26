@@ -7,7 +7,7 @@ object Dm: TDm
     Params.Strings = (
       'User_Name=sysdba'
       'Password=masterkey'
-      'Database=C:\Controle_Estoque\TCC\Banco de Dados\ESTOQUE'
+      'Database=C:\Controle_Estoque\TCC\Banco de Dados\ESTOQUE_NEW.FDB'
       'DriverID=FB')
     LoginPrompt = False
     Left = 104
