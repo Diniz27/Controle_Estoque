@@ -1,20 +1,15 @@
 inherited FrmCadPessoas: TFrmCadPessoas
   Caption = 'FrmCadPessoas'
-  ClientHeight = 740
-  ClientWidth = 1012
-  StyleElements = [seFont, seClient, seBorder]
+  ClientHeight = 739
+  ClientWidth = 1008
   OnCreate = FormCreate
-  ExplicitLeft = -235
-  ExplicitWidth = 1028
-  ExplicitHeight = 779
+  ExplicitTop = -81
+  ExplicitWidth = 1020
+  ExplicitHeight = 777
   TextHeight = 15
   inherited PnlTopo: TPanel
-    Width = 1012
-    StyleElements = [seFont, seClient, seBorder]
-    ExplicitWidth = 1012
-    inherited Label4: TLabel
-      StyleElements = [seFont, seClient, seBorder]
-    end
+    Width = 1008
+    ExplicitWidth = 1004
     inherited Image4: TImage
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
@@ -71,20 +66,18 @@ inherited FrmCadPessoas: TFrmCadPessoas
     inherited Label2: TLabel
       Width = 110
       Caption = 'Cad. de Pessoas'
-      StyleElements = [seFont, seClient, seBorder]
       ExplicitWidth = 110
     end
     inherited BtnClose: TSpeedButton
-      Left = 930
+      Left = 926
       ExplicitLeft = 1025
     end
   end
   inherited PnlCentral: TPanel
-    Width = 1012
-    Height = 675
-    StyleElements = [seFont, seClient, seBorder]
-    ExplicitWidth = 1012
-    ExplicitHeight = 675
+    Width = 1008
+    Height = 674
+    ExplicitWidth = 1004
+    ExplicitHeight = 673
     object Label1: TLabel
       Left = 18
       Top = 21
@@ -114,7 +107,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
     object Panel1: TPanel
       Left = 0
       Top = 47
-      Width = 992
+      Width = 980
       Height = 218
       Anchors = [akLeft, akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
@@ -124,6 +117,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      ExplicitWidth = 976
       object Label3: TLabel
         Left = 17
         Top = 11
@@ -220,7 +214,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 32
         Width = 225
         Height = 25
-        DataField = 'dt_cadastro'
+        DataField = 'DT_CADASTRO'
         DataSource = Ds
         Enabled = False
         Font.Charset = DEFAULT_CHARSET
@@ -237,7 +231,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 104
         Width = 469
         Height = 25
-        DataField = 'nm_razaosocial'
+        DataField = 'NM_RAZAOSOCIAL'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -252,7 +246,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 104
         Width = 337
         Height = 25
-        DataField = 'nm_reduzido'
+        DataField = 'NM_REDUZIDO'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -267,7 +261,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 184
         Width = 225
         Height = 25
-        DataField = 'cpf_cnpj'
+        DataField = 'CPF_CNPJ'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -283,7 +277,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 184
         Width = 225
         Height = 25
-        DataField = 'rg_ie'
+        DataField = 'RG_IE'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -298,7 +292,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 32
         Width = 225
         Height = 25
-        DataField = 'nm_tipopessoa'
+        DataField = 'NM_TIPOPESSOA'
         DataSource = Ds
         Items.Strings = (
           'Cliente'
@@ -312,7 +306,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Height = 46
         Caption = 'Fis'#237'ca ou J'#250'ridica?'
         Columns = 2
-        DataField = 'fl_pf_pj'
+        DataField = 'FL_PF_PJ'
         DataSource = Ds
         DefaultHeaderFont = False
         Font.Charset = DEFAULT_CHARSET
@@ -340,7 +334,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 184
         Width = 337
         Height = 25
-        DataField = 'nm_consumidor'
+        DataField = 'NM_CONSUMIDOR'
         DataSource = Ds
         Items.Strings = (
           'Consumidor Final'
@@ -351,11 +345,13 @@ inherited FrmCadPessoas: TFrmCadPessoas
     object Panel2: TPanel
       Left = 0
       Top = 312
-      Width = 1012
-      Height = 363
+      Width = 1008
+      Height = 362
       Align = alBottom
       Anchors = [akLeft, akTop, akRight, akBottom]
       TabOrder = 1
+      ExplicitWidth = 1004
+      ExplicitHeight = 361
       object Label12: TLabel
         Left = 18
         Top = 17
@@ -513,7 +509,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 40
         Width = 121
         Height = 25
-        DataField = 'cep'
+        DataField = 'CEP'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -529,7 +525,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 104
         Width = 470
         Height = 25
-        DataField = 'nm_logradouro'
+        DataField = 'NM_LOGRADOURO'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -544,7 +540,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 176
         Width = 330
         Height = 25
-        DataField = 'nm_bairro'
+        DataField = 'NM_BAIRRO'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -559,7 +555,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 176
         Width = 121
         Height = 25
-        DataField = 'id_ibge'
+        DataField = 'ID_IBGE'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -574,7 +570,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 104
         Width = 81
         Height = 25
-        DataField = 'nm_numero'
+        DataField = 'NM_NUMERO'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -589,7 +585,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 104
         Width = 241
         Height = 25
-        DataField = 'nm_complemento'
+        DataField = 'NM_COMPLEMENTO'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -604,7 +600,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 176
         Width = 185
         Height = 25
-        DataField = 'nm_cidade'
+        DataField = 'NM_CIDADE'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -619,7 +615,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 176
         Width = 131
         Height = 25
-        DataField = 'nm_estado'
+        DataField = 'NM_ESTADO'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -634,7 +630,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 256
         Width = 226
         Height = 25
-        DataField = 'nm_telefone1'
+        DataField = 'NM_TELEFONE1'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -649,7 +645,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 256
         Width = 225
         Height = 25
-        DataField = 'nm_telefone2'
+        DataField = 'NM_TELEFONE2'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -664,7 +660,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Top = 256
         Width = 337
         Height = 25
-        DataField = 'nm_email'
+        DataField = 'NM_EMAIL'
         DataSource = Ds
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -676,13 +672,14 @@ inherited FrmCadPessoas: TFrmCadPessoas
       end
     end
     object PnlCancela: TPanel
-      Left = 887
+      Left = 875
       Top = 6
       Width = 97
       Height = 35
       Anchors = [akTop, akRight]
       ParentBackground = False
       TabOrder = 2
+      ExplicitLeft = 871
       object BtnCancela: TSpeedButton
         Left = 1
         Top = 1
@@ -699,14 +696,12 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Style = [fsBold]
         ParentFont = False
         OnClick = BtnCancelaClick
-        ExplicitLeft = 56
-        ExplicitTop = 8
-        ExplicitWidth = 23
-        ExplicitHeight = 22
+        ExplicitLeft = 0
+        ExplicitTop = 0
       end
     end
     object PnlConfirma: TPanel
-      Left = 784
+      Left = 772
       Top = 6
       Width = 97
       Height = 35
@@ -714,6 +709,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Color = clHighlight
       ParentBackground = False
       TabOrder = 3
+      ExplicitLeft = 768
       object BtnConfirma: TSpeedButton
         Left = 1
         Top = 1
@@ -750,6 +746,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
     Top = 8
   end
   object Qry: TFDQuery
+    CachedUpdates = True
     Connection = Dm.FDconexao
     SQL.Strings = (
       'SELECT a.ID_PESSOA, a.NM_TIPOPESSOA, a.DT_CADASTRO, a.FL_PF_PJ,'
@@ -763,8 +760,133 @@ inherited FrmCadPessoas: TFrmCadPessoas
         '    a.ID_IBGE, a.NM_CIDADE, a.NM_ESTADO, a.NM_TELEFONE1, a.NM_TE' +
         'LEFONE2,'
       '    a.NM_EMAIL, a.NEW_TABLECOL'
-      'FROM PESSOAS a ')
-    Left = 768
-    Top = 9
+      'FROM PESSOAS a'
+      'WHERE'
+      '  a.ID_PESSOA = :pessoa')
+    Left = 696
+    Top = 16
+    ParamData = <
+      item
+        Name = 'PESSOA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
+    object QryID_PESSOA: TIntegerField
+      FieldName = 'ID_PESSOA'
+      Origin = 'ID_PESSOA'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QryNM_TIPOPESSOA: TStringField
+      FieldName = 'NM_TIPOPESSOA'
+      Origin = 'NM_TIPOPESSOA'
+      Required = True
+      Size = 10
+    end
+    object QryDT_CADASTRO: TDateField
+      FieldName = 'DT_CADASTRO'
+      Origin = 'DT_CADASTRO'
+    end
+    object QryFL_PF_PJ: TIntegerField
+      FieldName = 'FL_PF_PJ'
+      Origin = 'FL_PF_PJ'
+      Required = True
+    end
+    object QryNM_RAZAOSOCIAL: TStringField
+      FieldName = 'NM_RAZAOSOCIAL'
+      Origin = 'NM_RAZAOSOCIAL'
+      Required = True
+      Size = 100
+    end
+    object QryNM_REDUZIDO: TStringField
+      FieldName = 'NM_REDUZIDO'
+      Origin = 'NM_REDUZIDO'
+      Size = 85
+    end
+    object QryCPF_CNPJ: TStringField
+      FieldName = 'CPF_CNPJ'
+      Origin = 'CPF_CNPJ'
+      Required = True
+      Size = 14
+    end
+    object QryRG_IE: TStringField
+      FieldName = 'RG_IE'
+      Origin = 'RG_IE'
+      Required = True
+      Size = 45
+    end
+    object QryNM_CONSUMIDOR: TStringField
+      FieldName = 'NM_CONSUMIDOR'
+      Origin = 'NM_CONSUMIDOR'
+      Required = True
+      Size = 45
+    end
+    object QryCEP: TStringField
+      FieldName = 'CEP'
+      Origin = 'CEP'
+      Required = True
+      Size = 45
+    end
+    object QryNM_LOGRADOURO: TStringField
+      FieldName = 'NM_LOGRADOURO'
+      Origin = 'NM_LOGRADOURO'
+      Required = True
+      Size = 100
+    end
+    object QryNM_NUMERO: TIntegerField
+      FieldName = 'NM_NUMERO'
+      Origin = 'NM_NUMERO'
+    end
+    object QryNM_COMPLEMENTO: TStringField
+      FieldName = 'NM_COMPLEMENTO'
+      Origin = 'NM_COMPLEMENTO'
+      Size = 100
+    end
+    object QryNM_BAIRRO: TStringField
+      FieldName = 'NM_BAIRRO'
+      Origin = 'NM_BAIRRO'
+      Required = True
+      Size = 100
+    end
+    object QryID_IBGE: TIntegerField
+      FieldName = 'ID_IBGE'
+      Origin = 'ID_IBGE'
+      Required = True
+    end
+    object QryNM_CIDADE: TStringField
+      FieldName = 'NM_CIDADE'
+      Origin = 'NM_CIDADE'
+      Required = True
+      Size = 100
+    end
+    object QryNM_ESTADO: TStringField
+      FieldName = 'NM_ESTADO'
+      Origin = 'NM_ESTADO'
+      Required = True
+      FixedChar = True
+      Size = 2
+    end
+    object QryNM_TELEFONE1: TStringField
+      FieldName = 'NM_TELEFONE1'
+      Origin = 'NM_TELEFONE1'
+      Required = True
+      Size = 45
+    end
+    object QryNM_TELEFONE2: TStringField
+      FieldName = 'NM_TELEFONE2'
+      Origin = 'NM_TELEFONE2'
+      Size = 45
+    end
+    object QryNM_EMAIL: TStringField
+      FieldName = 'NM_EMAIL'
+      Origin = 'NM_EMAIL'
+      Size = 100
+    end
+    object QryNEW_TABLECOL: TStringField
+      FieldName = 'NEW_TABLECOL'
+      Origin = 'NEW_TABLECOL'
+      Size = 45
+    end
   end
 end

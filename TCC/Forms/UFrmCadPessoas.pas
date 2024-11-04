@@ -74,6 +74,27 @@ type
     PnlConfirma: TPanel;
     BtnConfirma: TSpeedButton;
     Qry: TFDQuery;
+    QryID_PESSOA: TIntegerField;
+    QryNM_TIPOPESSOA: TStringField;
+    QryDT_CADASTRO: TDateField;
+    QryFL_PF_PJ: TIntegerField;
+    QryNM_RAZAOSOCIAL: TStringField;
+    QryNM_REDUZIDO: TStringField;
+    QryCPF_CNPJ: TStringField;
+    QryRG_IE: TStringField;
+    QryNM_CONSUMIDOR: TStringField;
+    QryCEP: TStringField;
+    QryNM_LOGRADOURO: TStringField;
+    QryNM_NUMERO: TIntegerField;
+    QryNM_COMPLEMENTO: TStringField;
+    QryNM_BAIRRO: TStringField;
+    QryID_IBGE: TIntegerField;
+    QryNM_CIDADE: TStringField;
+    QryNM_ESTADO: TStringField;
+    QryNM_TELEFONE1: TStringField;
+    QryNM_TELEFONE2: TStringField;
+    QryNM_EMAIL: TStringField;
+    QryNEW_TABLECOL: TStringField;
     procedure BtnPesqClick(Sender: TObject);
     procedure EdtCPFCNPJExit(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -95,7 +116,7 @@ var
 
 implementation
 
-uses UValidaDados, {UFrmProdutos,} UFrmPessoas;
+uses UValidaDados, {UFrmProdutos,} UFrmPessoas, UFrmPesqPessoas;
 
 {$R *.dfm}
 
@@ -134,6 +155,8 @@ begin
   finally
     MessageDlg('Informação adicionada / editada com sucesso.', mtConfirmation, [mbOk], 0);
     BtnCancela.Enabled := False;
+
+    Close;
   end;
 
 end;
@@ -197,15 +220,15 @@ end;
 procedure TFrmCadPessoas.FormCreate(Sender: TObject);
 begin
   inherited;
-//  Qry.Parameters.ParamByName('pessoa').Value := FrmPessoas.Qry.FieldByName('id_pessoa').Value;
-//  Qry.Open;
+  Qry.ParamByName('pessoa').Value := FrmPesqPessoas.QryPesq.FieldByName('id_pessoa').Value;
+  Qry.Open;
 end;
 
 procedure TFrmCadPessoas.QryBeforePost(DataSet: TDataSet);
 begin
   inherited;
   if Qry.State = dsInsert then
-      Qrydt_cadastro.Value := Now;
+//      Qrydt_cadastro.Value := Now;
 end;
 
 procedure TFrmCadPessoas.RgTipoClick(Sender: TObject);
@@ -218,7 +241,7 @@ begin
     LblCPFCNPJ.Caption := 'CPF';
     LblRGIE.Caption := 'RG';
 
-    Qrycpf_cnpj.EditMask := '999 999 999\-99;0;_';
+//    Qrycpf_cnpj.EditMask := '999 999 999\-99;0;_';
   end
   else if RgTipo.ItemIndex = 1 then
   begin
@@ -227,7 +250,7 @@ begin
     LblCPFCNPJ.Caption := 'CNPJ';
     LblRGIE.Caption := 'Inscrição Estadual';
 
-    Qrycpf_cnpj.EditMask := '99 999 999\/9999\-99;0;_';
+//    Qrycpf_cnpj.EditMask := '99 999 999\/9999\-99;0;_';
   end;
 end;
 
