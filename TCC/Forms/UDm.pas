@@ -7,7 +7,8 @@ uses
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
   FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, Data.DB, FireDAC.Comp.Client,
-  FireDAC.Phys.IBBase, IniFiles, Vcl.Dialogs, Vcl.Forms;
+  FireDAC.Phys.IBBase, IniFiles, Vcl.Dialogs, Vcl.Forms, FireDAC.Moni.Base,
+  FireDAC.Moni.RemoteClient;
 
 type
   TDm = class(TDataModule)
@@ -42,17 +43,21 @@ begin
 
   arquivoINI:= TIniFile.Create(System.SysUtils.ExtractFilePath(ParamStr(0))+'\config.ini');
   user:= arquivoINI.ReadString('Controle_Estoque','User','');
-  password:= arquivoINI.ReadString('Controle_Estoque','password','');
+  password:= arquivoINI.ReadString('Controle_Estoque','Password','');
   database:= arquivoINI.ReadString('Controle_Estoque','Database','');
   driver:= arquivoINI.ReadString('Controle_Estoque','Driver','');
   conect:= arquivoINI.ReadString('Controle_Estoque', 'Conect','');
 
   try
     FDPhysFBDriverLink1.VendorLib := conect;
-    FDconexao.Params.Strings[0] := 'User_Name='+ user;
-    FDconexao.Params.Strings[1] := 'Password='+ password;
-    FDconexao.Params.Strings[2] := 'Database='+ database;
-    FDconexao.Params.Strings[3] := 'DriverID='+ driver;
+    FDconexao.Params.UserName := user;
+    FDconexao.Params.Password := password;
+    FDconexao.Params.Database := database;
+    FDconexao.Params.DriverID := driver;
+//    FDconexao.Params.Strings[0] := 'User_Name='+ user;
+//    FDconexao.Params.Strings[1] := 'Password='+ password;
+//    FDconexao.Params.Strings[2] := 'Database='+ database;
+//    FDconexao.Params.Strings[3] := 'DriverID='+ driver;
     FDconexao.Connected:= True;
   except
     on E : exception do

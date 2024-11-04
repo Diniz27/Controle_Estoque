@@ -1,13 +1,14 @@
 object Dm: TDm
   OnCreate = DataModuleCreate
   Height = 158
-  Width = 363
+  Width = 444
   object FDconexao: TFDConnection
     ConnectionName = 'FDPhysFBDriverLink1'
     Params.Strings = (
+      'Database=C:\Controle_Estoque\TCC\Banco de Dados\ESTOQUE_32.FDB'
       'User_Name=sysdba'
       'Password=masterkey'
-      'Database=C:\Controle_Estoque\TCC\Banco de Dados\ESTOQUE_NEW.FDB'
+      'Server=localhost'
       'DriverID=FB')
     LoginPrompt = False
     Left = 104
