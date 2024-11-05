@@ -2,6 +2,7 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
   Caption = 'FrmPesqMaterial'
   ClientHeight = 565
   ClientWidth = 1062
+  OnShow = FormShow
   ExplicitWidth = 1074
   ExplicitHeight = 603
   TextHeight = 15
@@ -23,7 +24,7 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
     ExplicitWidth = 834
     ExplicitHeight = 375
     object BtnPesq: TSpeedButton
-      Left = 742
+      Left = 743
       Top = 10
       Width = 23
       Height = 20
@@ -31,6 +32,7 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
       ImageIndex = 1
       Images = ImageList1
       HotImageIndex = 1
+      OnClick = BtnPesqClick
     end
     object CbPesq: TComboBox
       Left = 2
@@ -39,11 +41,11 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
       Height = 23
       ItemIndex = 0
       TabOrder = 0
-      Text = 'C'#243'd. Pessoa'
+      Text = 'C'#243'd. Material'
       Items.Strings = (
-        'C'#243'd. Pessoa'
-        'Nome Pessoa'
-        'Tipo Pessoa')
+        'C'#243'd. Material'
+        'Nome Material'
+        'Ativo')
     end
     object EdtPesq: TEdit
       Left = 150
@@ -69,6 +71,7 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
         Width = 1062
         Height = 444
         Align = alClient
+        DataSource = DsPesqMaterial
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
         ReadOnly = True
         TabOrder = 0
@@ -80,43 +83,43 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
         Columns = <
           item
             Expanded = False
-            FieldName = 'ID_PESSOA'
-            Title.Caption = 'C'#243'd. Pessoa'
+            FieldName = 'ID_PRODUTO'
+            Title.Caption = 'C'#243'd. Material'
             Width = 70
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'NM_RAZAOSOCIAL'
-            Title.Caption = 'Raz'#227'o Social'
+            FieldName = 'NM_PRODUTO'
+            Title.Caption = 'Nome Material'
             Width = 300
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'NM_TIPOPESSOA'
-            Title.Caption = 'Tipo Pessoa'
+            FieldName = 'FL_ATIVO'
+            Title.Caption = 'Ativo'
             Width = 70
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'NM_REDUZIDO'
+            FieldName = 'NM_PRODUTO_REDU'
             Title.Caption = 'Nome Reduzido'
             Width = 300
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'NM_CIDADE'
-            Title.Caption = 'Cidade'
+            FieldName = 'QN_ESTOQUE'
+            Title.Caption = 'Estoque'
             Width = 250
             Visible = True
           end
           item
             Expanded = False
-            FieldName = 'NM_TELEFONE1'
-            Title.Caption = 'N'#186' Telefone'
+            FieldName = 'VL_PRODUTO'
+            Title.Caption = 'Valor Material'
             Width = 120
             Visible = True
           end>
@@ -152,6 +155,7 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        OnClick = btnNovoClick
         ExplicitLeft = 21
         ExplicitTop = 23
         ExplicitWidth = 96
@@ -188,9 +192,26 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        OnClick = btnEditarClick
         ExplicitLeft = 19
         ExplicitTop = 0
       end
     end
+  end
+  object QrPesqMaterial: TFDQuery
+    Connection = Dm.FDconexao
+    SQL.Strings = (
+      
+        'SELECT ID_PRODUTO, FL_ATIVO, NM_PRODUTO, NM_PRODUTO_REDU, VL_PRO' +
+        'DUTO, ID_FORNECEDOR, ID_UNIMEDIDA, QN_ESTOQUE, QN_PESO_LIQ, NM_O' +
+        'BS, QN_CODBARRAS, QN_PESO_BRUTO'
+      'FROM PRODUTOS')
+    Left = 728
+    Top = 24
+  end
+  object DsPesqMaterial: TDataSource
+    DataSet = QrPesqMaterial
+    Left = 776
+    Top = 24
   end
 end

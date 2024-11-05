@@ -3,7 +3,6 @@ inherited FrmCadPessoas: TFrmCadPessoas
   ClientHeight = 739
   ClientWidth = 1008
   OnCreate = FormCreate
-  ExplicitTop = -81
   ExplicitWidth = 1020
   ExplicitHeight = 777
   TextHeight = 15
@@ -107,7 +106,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
     object Panel1: TPanel
       Left = 0
       Top = 47
-      Width = 980
+      Width = 1008
       Height = 218
       Anchors = [akLeft, akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
@@ -117,7 +116,6 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 976
       object Label3: TLabel
         Left = 17
         Top = 11
@@ -763,8 +761,8 @@ inherited FrmCadPessoas: TFrmCadPessoas
       'FROM PESSOAS a'
       'WHERE'
       '  a.ID_PESSOA = :pessoa')
-    Left = 696
-    Top = 16
+    Left = 776
+    Top = 8
     ParamData = <
       item
         Name = 'PESSOA'
