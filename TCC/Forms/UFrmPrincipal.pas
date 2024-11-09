@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.ExtCtrls, Vcl.StdCtrls,
   System.ImageList, Vcl.ImgList, Vcl.Imaging.pngimage, Vcl.Buttons,
-  Vcl.CustomizeDlg, Vcl.ComCtrls;
+  Vcl.CustomizeDlg, Vcl.ComCtrls, UFrmPesqPessoas, UFrmPesqMaterial;
 
 type
   TFrmPrincipal = class(TForm)
@@ -60,40 +60,39 @@ procedure TFrmPrincipal.BtnPessoaClick(Sender: TObject);
 begin
   try
     EsconderPainel;
-    FrmPessoas := TFrmPessoas.Create(Self);
-    FrmPessoas.Show;
+    FrmPesqPessoas := TFrmPesqPessoas.Create(Self);
+    FrmPesqPessoas.Show;
   except
-    FrmPessoas.Free;
+    FrmPesqPessoas.Free;
   end;
 end;
 
 procedure TFrmPrincipal.BtnMaterialClick(Sender: TObject);
 begin
-  try
+  Try
     EsconderPainel;
-//    FrmPedidos := TFrmPedidos.Create(Self);
-//    FrmPedidos.Show;
-  Except
-//    FrmPedidos.Free;
-  end;
+    FrmPesqMaterial := TFrmPesqMaterial.Create(Self);
+    FrmPesqMaterial.Show;
+  except
+    FrmPesqMaterial.Free;
+  End;
 end;
 
 procedure TFrmPrincipal.BtnEntradaSaidaClick(Sender: TObject);
 begin
-  Try
-    EsconderPainel;
-//    FrmProdutos := TFrmProdutos.Create(Self);
-//    FrmProdutos.Show;
-  except
-//    FrmProdutos.Free;
-  End;
+//  Try
+//    EsconderPainel;
+//    FrmPesqMaterial := TFrmPesqMaterial.Create(Self);
+//    FrmPesqMaterial.Show;
+//  except
+//    FrmPesqMaterial.Free;
+//  End;
 end;
 
 procedure TFrmPrincipal.BtnUsuarioClick(Sender: TObject);
 begin
   try
-//    FrmUsuarios := TFrmUsuarios.Create(Self);
-//    FrmUsuarios.Show;
+
   finally
 
   end;

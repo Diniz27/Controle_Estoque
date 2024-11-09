@@ -51,7 +51,7 @@ end;
 procedure TFrmPessoas.SpeedButton1Click(Sender: TObject);
 begin
   inherited;
-    try
+  try
     FrmCadPessoas := TFrmCadPessoas.Create(Self);
     FrmCadPessoas.Show;
   except

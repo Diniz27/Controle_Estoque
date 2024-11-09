@@ -10,7 +10,9 @@ uses
   UFrmPessoas in '..\Forms\UFrmPessoas.pas' {FrmPessoas},
   UFrmPesqPessoas in '..\Forms\UFrmPesqPessoas.pas' {FrmPesqPessoas},
   UFrmCadPessoas in '..\Forms\UFrmCadPessoas.pas' {FrmCadPessoas},
-  UValidaDados in '..\Forms\UValidaDados.pas';
+  UValidaDados in '..\Forms\UValidaDados.pas',
+  UFrmPesqMaterial in '..\Forms\UFrmPesqMaterial.pas' {FrmPesqMaterial},
+  UFrmCadMaterial in '..\Forms\UFrmCadMaterial.pas' {FrmCadMaterial};
 
 {$R *.res}
 

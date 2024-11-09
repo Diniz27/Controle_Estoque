@@ -27,11 +27,12 @@ object FrmPrincipal: TFrmPrincipal
     BevelKind = bkTile
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitWidth = 988
     DesignSize = (
       988
       92)
     object BtnConf: TSpeedButton
-      Left = 775
+      Left = 771
       Top = 25
       Width = 190
       Height = 40
@@ -43,7 +44,7 @@ object FrmPrincipal: TFrmPrincipal
       ExplicitLeft = 896
     end
     object BtnUsuario: TSpeedButton
-      Left = 519
+      Left = 515
       Top = 25
       Width = 190
       Height = 40
@@ -109,6 +110,8 @@ object FrmPrincipal: TFrmPrincipal
     Align = alClient
     AutoSize = True
     TabOrder = 1
+    ExplicitWidth = 988
+    ExplicitHeight = 583
     object Panel5: TPanel
       Left = 57
       Top = 30

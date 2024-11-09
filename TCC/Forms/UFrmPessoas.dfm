@@ -2,16 +2,12 @@ inherited FrmPessoas: TFrmPessoas
   Caption = 'FrmPessoas'
   ClientHeight = 509
   ClientWidth = 985
-  StyleElements = [seFont, seClient, seBorder]
-  ExplicitWidth = 1001
-  ExplicitHeight = 548
+  ExplicitWidth = 997
+  ExplicitHeight = 547
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 985
-    StyleElements = [seFont, seClient, seBorder]
-    inherited Label4: TLabel
-      StyleElements = [seFont, seClient, seBorder]
-    end
+    ExplicitWidth = 981
     inherited Image4: TImage
       Picture.Data = {
         0954506E67496D61676589504E470D0A1A0A0000000D49484452000000320000
@@ -68,32 +64,31 @@ inherited FrmPessoas: TFrmPessoas
     inherited Label2: TLabel
       Width = 55
       Caption = 'Pessoas'
-      StyleElements = [seFont, seClient, seBorder]
       ExplicitWidth = 55
     end
     inherited BtnClose: TSpeedButton
-      Left = 923
+      Left = 919
+      ExplicitLeft = 923
     end
   end
   inherited PnlCentral: TPanel
     Width = 985
     Height = 444
     ParentColor = True
-    StyleElements = [seFont, seClient, seBorder]
-    ExplicitTop = 69
-    ExplicitWidth = 1068
-    ExplicitHeight = 444
+    ExplicitWidth = 981
+    ExplicitHeight = 443
     object Panel3: TPanel
       Left = 121
-      Top = 162
-      Width = 654
+      Top = 163
+      Width = 650
       Height = 120
       Anchors = [akLeft, akRight]
       BevelOuter = bvNone
       TabOrder = 0
-      ExplicitWidth = 737
+      ExplicitTop = 162
+      ExplicitWidth = 646
       DesignSize = (
-        654
+        650
         120)
       object PnlPessoa: TPanel
         Left = 0
@@ -211,7 +206,7 @@ inherited FrmPessoas: TFrmPessoas
         end
       end
       object Panel1: TPanel
-        Left = 349
+        Left = 345
         Top = 0
         Width = 305
         Height = 120
@@ -220,7 +215,7 @@ inherited FrmPessoas: TFrmPessoas
         Color = clWhite
         ParentBackground = False
         TabOrder = 1
-        ExplicitLeft = 432
+        ExplicitLeft = 341
         DesignSize = (
           305
           120)
