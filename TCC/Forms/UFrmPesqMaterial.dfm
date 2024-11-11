@@ -10,6 +10,9 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
   inherited PnlTopo: TPanel
     Width = 1062
     ExplicitWidth = 1058
+    DesignSize = (
+      1058
+      61)
     inherited Label2: TLabel
       Width = 144
       Caption = 'Pesquisa de Material'
@@ -89,43 +92,109 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
           item
             Expanded = False
             FieldName = 'ID_PRODUTO'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Segoe UI'
+            Font.Style = []
             Title.Caption = 'C'#243'd. Material'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -12
+            Title.Font.Name = 'Segoe UI'
+            Title.Font.Style = [fsBold]
             Width = 70
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'NM_PRODUTO'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Segoe UI'
+            Font.Style = []
             Title.Caption = 'Nome Material'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -12
+            Title.Font.Name = 'Segoe UI'
+            Title.Font.Style = [fsBold]
             Width = 300
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'FL_ATIVO'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Segoe UI'
+            Font.Style = []
             Title.Caption = 'Ativo'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -12
+            Title.Font.Name = 'Segoe UI'
+            Title.Font.Style = [fsBold]
             Width = 70
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'NM_PRODUTO_REDU'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Segoe UI'
+            Font.Style = []
             Title.Caption = 'Nome Reduzido'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -12
+            Title.Font.Name = 'Segoe UI'
+            Title.Font.Style = [fsBold]
             Width = 300
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'QN_ESTOQUE'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Segoe UI'
+            Font.Style = []
             Title.Caption = 'Estoque'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -12
+            Title.Font.Name = 'Segoe UI'
+            Title.Font.Style = [fsBold]
             Width = 250
             Visible = True
           end
           item
             Expanded = False
             FieldName = 'VL_PRODUTO'
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -12
+            Font.Name = 'Segoe UI'
+            Font.Style = []
             Title.Caption = 'Valor Material'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -12
+            Title.Font.Name = 'Segoe UI'
+            Title.Font.Style = [fsBold]
             Width = 120
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'UNIDADE_MEDIDA'
+            Title.Caption = 'Unidade de Medida'
             Visible = True
           end>
       end
@@ -210,7 +279,8 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
     SQL.Strings = (
       
         'SELECT ID_PRODUTO, NM_PRODUTO, VL_PRODUTO, ID_FORNECEDOR, ID_UNI' +
-        'MEDIDA, QN_ESTOQUE, QN_PESO, NM_OBS, FL_ATIVO'
+        'MEDIDA, QN_ESTOQUE, QN_PESO, NM_OBS, FL_ATIVO, QN_CODBARRAS, QN_' +
+        'PESO_BRUTO, QN_PESO_LIQ, NM_PRODUTO_REDU'
       'FROM PRODUTOS')
     Left = 728
     Top = 24
@@ -256,10 +326,51 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
       Origin = 'FL_ATIVO'
       Size = 1
     end
+    object QrPesqMaterialQN_CODBARRAS: TStringField
+      FieldName = 'QN_CODBARRAS'
+      Origin = 'QN_CODBARRAS'
+      Size = 25
+    end
+    object QrPesqMaterialQN_PESO_BRUTO: TFloatField
+      FieldName = 'QN_PESO_BRUTO'
+      Origin = 'QN_PESO_BRUTO'
+    end
+    object QrPesqMaterialQN_PESO_LIQ: TFloatField
+      FieldName = 'QN_PESO_LIQ'
+      Origin = 'QN_PESO_LIQ'
+    end
+    object QrPesqMaterialNM_PRODUTO_REDU: TStringField
+      FieldName = 'NM_PRODUTO_REDU'
+      Origin = 'NM_PRODUTO_REDU'
+      Size = 50
+    end
+    object QrPesqMaterialUNIDADE_MEDIDA: TStringField
+      FieldKind = fkLookup
+      FieldName = 'UNIDADE_MEDIDA'
+      LookupDataSet = QrUniMed
+      LookupKeyFields = 'ID_UNIDADE'
+      LookupResultField = 'DESCRICAO_REDU'
+      KeyFields = 'ID_UNIMEDIDA'
+      Size = 10
+      Lookup = True
+    end
   end
   object DsPesqMaterial: TDataSource
     DataSet = QrPesqMaterial
     Left = 776
     Top = 24
+  end
+  object QrUniMed: TFDQuery
+    Connection = Dm.FDconexao
+    SQL.Strings = (
+      'SELECT ID_UNIDADE, DESCRICAO, DESCRICAO_REDU'
+      'FROM UNIDADE_MEDIDA ')
+    Left = 504
+    Top = 16
+  end
+  object DsUniMed: TDataSource
+    DataSet = QrUniMed
+    Left = 552
+    Top = 16
   end
 end

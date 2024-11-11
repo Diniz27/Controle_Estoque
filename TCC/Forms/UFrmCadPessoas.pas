@@ -38,7 +38,6 @@ type
     EdtRGIE: TDBEdit;
     LblCPFCNPJ: TLabel;
     LblRGIE: TLabel;
-    Label10: TLabel;
     Label11: TLabel;
     Panel2: TPanel;
     EdtCEP: TDBEdit;
@@ -65,24 +64,27 @@ type
     EdtEmail: TDBEdit;
     BtnPesq: TSpeedButton;
     XMLDocument1: TXMLDocument;
-    CbTipoPessoa: TDBComboBox;
     Ds: TDataSource;
     RgTipo: TDBRadioGroup;
-    CbConsumidor: TDBComboBox;
     PnlCancela: TPanel;
     BtnCancela: TSpeedButton;
     PnlConfirma: TPanel;
     BtnConfirma: TSpeedButton;
     Qry: TFDQuery;
+    QrTemp: TFDQuery;
+    CbTipoPessoa: TDBLookupComboBox;
+    QrTipoPessoa: TFDQuery;
+    DsTipoPessoa: TDataSource;
+    QrTipoPessoaID_TIPO: TIntegerField;
+    QrTipoPessoaNM_TIPO: TStringField;
     QryID_PESSOA: TIntegerField;
-    QryNM_TIPOPESSOA: TStringField;
+    QryID_TIPOPESSOA: TIntegerField;
     QryDT_CADASTRO: TDateField;
     QryFL_PF_PJ: TIntegerField;
     QryNM_RAZAOSOCIAL: TStringField;
     QryNM_REDUZIDO: TStringField;
     QryCPF_CNPJ: TStringField;
     QryRG_IE: TStringField;
-    QryNM_CONSUMIDOR: TStringField;
     QryCEP: TStringField;
     QryNM_LOGRADOURO: TStringField;
     QryNM_NUMERO: TIntegerField;
@@ -95,7 +97,6 @@ type
     QryNM_TELEFONE2: TStringField;
     QryNM_EMAIL: TStringField;
     QryNEW_TABLECOL: TStringField;
-    QrTemp: TFDQuery;
     procedure BtnPesqClick(Sender: TObject);
     procedure EdtCPFCNPJExit(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -135,13 +136,12 @@ procedure TFrmCadPessoas.BtnConfirmaClick(Sender: TObject);
 begin
   inherited;
 
-  VerificarCampoNulo(Qrynm_tipopessoa, 'Necessário preencher o Tipo de Pessoa.');
+  VerificarCampoNulo(QryID_TIPOPESSOA, 'Necessário preencher o Tipo de Pessoa.');
   VerificarCampoNulo(Qryfl_pf_pj, 'Necessário preencher se é Pessoa Fisíca ou Pessoa Júridica.');
   VerificarCampoNulo(Qrynm_razaosocial, 'Necessário preencher o Nome / Razão Social.');
   VerificarCampoNulo(Qrynm_reduzido, 'Necessário preencher o Nome Reduzido / Fantasia.');
   VerificarCampoNulo(Qrycpf_cnpj, 'Necessário preencher o CPF / CNPJ.');
   VerificarCampoNulo(Qryrg_ie, 'Necessário preencher o RG / IE.');
-  VerificarCampoNulo(Qrynm_consumidor, 'Necessário preencher o Tipo de Consumidor');
   VerificarCampoNulo(Qrynm_logradouro, 'Necessário preencher o Endereço.');
   VerificarCampoNulo(Qrynm_numero, 'Necessário preencher o Número.');
   VerificarCampoNulo(Qrynm_bairro, 'Necessário preencher o Bairro.');
@@ -229,6 +229,8 @@ begin
   inherited;
   Qry.ParamByName('pessoa').Value := FrmPesqPessoas.QryPesq.FieldByName('id_pessoa').Value;
   Qry.Open;
+
+  QrTipoPessoa.Open;
 end;
 
 procedure TFrmCadPessoas.QryBeforePost(DataSet: TDataSet);

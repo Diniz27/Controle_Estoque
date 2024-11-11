@@ -104,6 +104,30 @@ type
     btnNovo: TSpeedButton;
     Panel3: TPanel;
     btnEditar: TSpeedButton;
+    QrTipoPessoa: TFDQuery;
+    DsTipoPessoa: TDataSource;
+    QryPesqID_PESSOA: TIntegerField;
+    QryPesqID_TIPOPESSOA: TIntegerField;
+    QryPesqDT_CADASTRO: TDateField;
+    QryPesqFL_PF_PJ: TIntegerField;
+    QryPesqNM_RAZAOSOCIAL: TStringField;
+    QryPesqNM_REDUZIDO: TStringField;
+    QryPesqCPF_CNPJ: TStringField;
+    QryPesqRG_IE: TStringField;
+    QryPesqCEP: TStringField;
+    QryPesqNM_LOGRADOURO: TStringField;
+    QryPesqNM_NUMERO: TIntegerField;
+    QryPesqNM_COMPLEMENTO: TStringField;
+    QryPesqNM_BAIRRO: TStringField;
+    QryPesqID_IBGE: TIntegerField;
+    QryPesqNM_CIDADE: TStringField;
+    QryPesqNM_ESTADO: TStringField;
+    QryPesqNM_TELEFONE1: TStringField;
+    QryPesqNM_TELEFONE2: TStringField;
+    QryPesqNM_EMAIL: TStringField;
+    QrTipoPessoaID_TIPO: TIntegerField;
+    QrTipoPessoaNM_TIPO: TStringField;
+    QryPesqNM_TIPO: TStringField;
     procedure BtnPesqClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
 
@@ -171,6 +195,7 @@ end;
 procedure TFrmPesqPessoas.FormActivate(Sender: TObject);
 begin
   inherited;
+  QrTipoPessoa.Refresh;
   QryPesq.Refresh;
   DBGrid1.Refresh;
 end;
@@ -178,6 +203,7 @@ end;
 procedure TFrmPesqPessoas.FormShow(Sender: TObject);
 begin
   inherited;
+  QrTipoPessoa.Open;
   QryPesq.Open;
 
 end;

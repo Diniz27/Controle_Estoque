@@ -27,7 +27,6 @@ type
     EdtSenha: TEdit;
     PnlMensagem: TPanel;
     QryLogin: TFDQuery;
-    procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure LinkLabel1Click(Sender: TObject);
     procedure BtnCancelaClick(Sender: TObject);
@@ -53,14 +52,8 @@ implementation
 
 uses UFrmPrincipal, UDm, Global;
 
-procedure TFrmLogin.FormClose(Sender: TObject; var Action: TCloseAction);
-begin
-//  FrmLogin.Free;
-end;
-
 procedure TFrmLogin.FormCreate(Sender: TObject);
 begin
-//  Dm := TDm.Create (Application);
   Label2.Caption := 'Sistema desenvolvido por estudantes do' + #13 +
                     'curso de Ciências da Computação.';
   LinkLabel1.Caption := '<a href="https://github.com/robson10mateus/Pojeto_TCC">Link GitHub</a>';
@@ -101,9 +94,6 @@ begin
   end;
 
   try
-
-//    Dm := TDm.Create(Application);
-
     QryLogin.Close;
 
     QryLogin.ParamByName('nm_usuario').Value := EdtUsuario.Text;

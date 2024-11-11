@@ -133,9 +133,9 @@ inherited FrmCadPessoas: TFrmCadPessoas
       object Label5: TLabel
         Left = 262
         Top = 9
-        Width = 85
+        Width = 87
         Height = 17
-        Caption = 'Cliente Desde'
+        Caption = 'Data Cadastro'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowFrame
         Font.Height = -13
@@ -195,19 +195,6 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Style = [fsBold]
         ParentFont = False
       end
-      object Label10: TLabel
-        Left = 512
-        Top = 161
-        Width = 109
-        Height = 17
-        Caption = 'Consumidor Final'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowFrame
-        Font.Height = -13
-        Font.Name = 'Segoe UI'
-        Font.Style = [fsBold]
-        ParentFont = False
-      end
       object EdtDataCad: TDBEdit
         Left = 262
         Top = 32
@@ -223,7 +210,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Style = []
         ParentFont = False
         ReadOnly = True
-        TabOrder = 7
+        TabOrder = 5
       end
       object EdtNome: TDBEdit
         Left = 18
@@ -238,7 +225,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 2
+        TabOrder = 1
       end
       object EdtNomeRed: TDBEdit
         Left = 512
@@ -253,7 +240,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 3
+        TabOrder = 2
       end
       object EdtCPFCNPJ: TDBEdit
         Left = 18
@@ -268,7 +255,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 4
+        TabOrder = 3
         OnExit = EdtCPFCNPJExit
       end
       object EdtRGIE: TDBEdit
@@ -284,19 +271,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        TabOrder = 5
-      end
-      object CbTipoPessoa: TDBComboBox
-        Left = 17
-        Top = 32
-        Width = 225
-        Height = 25
-        DataField = 'NM_TIPOPESSOA'
-        DataSource = Ds
-        Items.Strings = (
-          'Cliente'
-          'Fornecedor')
-        TabOrder = 0
+        TabOrder = 4
       end
       object RgTipo: TDBRadioGroup
         Left = 512
@@ -322,22 +297,22 @@ inherited FrmCadPessoas: TFrmCadPessoas
           'Fis'#237'ca - CPF'
           'J'#250'ridica - CNPJ')
         ParentFont = False
-        TabOrder = 1
+        TabOrder = 0
         Values.Strings = (
           '1'
           '2')
         OnClick = RgTipoClick
       end
-      object CbConsumidor: TDBComboBox
-        Left = 512
-        Top = 184
-        Width = 337
+      object CbTipoPessoa: TDBLookupComboBox
+        Left = 18
+        Top = 32
+        Width = 225
         Height = 25
-        DataField = 'NM_CONSUMIDOR'
+        DataField = 'ID_TIPOPESSOA'
         DataSource = Ds
-        Items.Strings = (
-          'Consumidor Final'
-          'Revenda')
+        KeyField = 'ID_TIPO'
+        ListField = 'NM_TIPO'
+        ListSource = DsTipoPessoa
         TabOrder = 6
       end
     end
@@ -750,10 +725,8 @@ inherited FrmCadPessoas: TFrmCadPessoas
     MasterFields = 'ID_PESSOA'
     Connection = Dm.FDconexao
     SQL.Strings = (
-      'SELECT a.ID_PESSOA, a.NM_TIPOPESSOA, a.DT_CADASTRO, a.FL_PF_PJ,'
-      
-        '    a.NM_RAZAOSOCIAL, a.NM_REDUZIDO, a.CPF_CNPJ, a.RG_IE, a.NM_C' +
-        'ONSUMIDOR,'
+      'SELECT a.ID_PESSOA, a.ID_TIPOPESSOA, a.DT_CADASTRO, a.FL_PF_PJ,'
+      '    a.NM_RAZAOSOCIAL, a.NM_REDUZIDO, a.CPF_CNPJ, a.RG_IE,'
       
         '    a.CEP, a.NM_LOGRADOURO, a.NM_NUMERO, a.NM_COMPLEMENTO, a.NM_' +
         'BAIRRO,'
@@ -779,11 +752,9 @@ inherited FrmCadPessoas: TFrmCadPessoas
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object QryNM_TIPOPESSOA: TStringField
-      FieldName = 'NM_TIPOPESSOA'
-      Origin = 'NM_TIPOPESSOA'
-      Required = True
-      Size = 10
+    object QryID_TIPOPESSOA: TIntegerField
+      FieldName = 'ID_TIPOPESSOA'
+      Origin = 'ID_TIPOPESSOA'
     end
     object QryDT_CADASTRO: TDateField
       FieldName = 'DT_CADASTRO'
@@ -814,12 +785,6 @@ inherited FrmCadPessoas: TFrmCadPessoas
     object QryRG_IE: TStringField
       FieldName = 'RG_IE'
       Origin = 'RG_IE'
-      Required = True
-      Size = 45
-    end
-    object QryNM_CONSUMIDOR: TStringField
-      FieldName = 'NM_CONSUMIDOR'
-      Origin = 'NM_CONSUMIDOR'
       Required = True
       Size = 45
     end
@@ -896,5 +861,29 @@ inherited FrmCadPessoas: TFrmCadPessoas
       'SELECT max(ID_PRODUTO) FROM PRODUTOS')
     Left = 696
     Top = 24
+  end
+  object QrTipoPessoa: TFDQuery
+    Connection = Dm.FDconexao
+    SQL.Strings = (
+      'SELECT ID_TIPO, NM_TIPO'
+      'FROM TIPO_PESSOA ')
+    Left = 408
+    Top = 16
+    object QrTipoPessoaID_TIPO: TIntegerField
+      FieldName = 'ID_TIPO'
+      Origin = 'ID_TIPO'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object QrTipoPessoaNM_TIPO: TStringField
+      FieldName = 'NM_TIPO'
+      Origin = 'NM_TIPO'
+      Size = 45
+    end
+  end
+  object DsTipoPessoa: TDataSource
+    DataSet = QrTipoPessoa
+    Left = 440
+    Top = 16
   end
 end

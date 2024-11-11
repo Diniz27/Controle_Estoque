@@ -26,6 +26,7 @@ object FrmPadrao: TFrmPadrao
     Color = clWhite
     ParentBackground = False
     TabOrder = 0
+    ExplicitWidth = 838
     DesignSize = (
       838
       61)
@@ -69,7 +70,7 @@ object FrmPadrao: TFrmPadrao
       ParentFont = False
     end
     object BtnClose: TSpeedButton
-      Left = 780
+      Left = 776
       Top = 13
       Width = 35
       Height = 35
@@ -90,6 +91,8 @@ object FrmPadrao: TFrmPadrao
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
+    ExplicitWidth = 838
+    ExplicitHeight = 376
   end
   object ImageList1: TImageList
     Height = 50

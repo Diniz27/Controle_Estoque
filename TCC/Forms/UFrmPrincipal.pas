@@ -54,7 +54,7 @@ implementation
 
 {$R *.dfm}
 
-uses UDm, UFrmLogin, UFrmPessoas;
+uses UDm, UFrmLogin, UFrmPessoas, UFrmPesqMovimento;
 
 procedure TFrmPrincipal.BtnPessoaClick(Sender: TObject);
 begin
@@ -80,13 +80,13 @@ end;
 
 procedure TFrmPrincipal.BtnEntradaSaidaClick(Sender: TObject);
 begin
-//  Try
-//    EsconderPainel;
-//    FrmPesqMaterial := TFrmPesqMaterial.Create(Self);
-//    FrmPesqMaterial.Show;
-//  except
-//    FrmPesqMaterial.Free;
-//  End;
+  Try
+    EsconderPainel;
+    FrmPesqMovimento := TFrmPesqMovimento.Create(Self);
+    FrmPesqMovimento.Show;
+  except
+    FrmPesqMovimento.Free;
+  End;
 end;
 
 procedure TFrmPrincipal.BtnUsuarioClick(Sender: TObject);

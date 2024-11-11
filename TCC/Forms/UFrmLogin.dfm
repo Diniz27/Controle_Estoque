@@ -15,7 +15,6 @@ object FrmLogin: TFrmLogin
   Font.Style = []
   KeyPreview = True
   Position = poDesktopCenter
-  OnClose = FormClose
   OnCreate = FormCreate
   OnKeyPress = FormKeyPress
   OnShow = FormShow
@@ -121,9 +120,9 @@ object FrmLogin: TFrmLogin
     object Label1: TLabel
       Left = 40
       Top = 70
-      Width = 232
+      Width = 233
       Height = 20
-      Caption = 'Bem Vindo ao Sistema Empresarial'
+      Caption = 'Bem Vindo ao Controle de Estoque'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowFrame
       Font.Height = -15

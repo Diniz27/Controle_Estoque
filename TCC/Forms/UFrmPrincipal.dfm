@@ -91,9 +91,9 @@ object FrmPrincipal: TFrmPrincipal
     object Label3: TLabel
       Left = 203
       Top = 25
-      Width = 174
+      Width = 178
       Height = 28
-      Caption = 'Sistema Empresarial'
+      Caption = 'Controle de Estoque'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clHighlight
       Font.Height = -20

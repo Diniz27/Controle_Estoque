@@ -173,6 +173,10 @@
             <Form>FrmCadMaterial</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Forms\UFrmPesqMovimento.pas">
+            <Form>FrmPesqMovimento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

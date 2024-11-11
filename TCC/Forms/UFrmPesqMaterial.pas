@@ -33,6 +33,13 @@ type
     QrPesqMaterialQN_PESO: TFloatField;
     QrPesqMaterialNM_OBS: TStringField;
     QrPesqMaterialFL_ATIVO: TStringField;
+    QrPesqMaterialQN_CODBARRAS: TStringField;
+    QrPesqMaterialQN_PESO_BRUTO: TFloatField;
+    QrPesqMaterialQN_PESO_LIQ: TFloatField;
+    QrPesqMaterialNM_PRODUTO_REDU: TStringField;
+    QrUniMed: TFDQuery;
+    DsUniMed: TDataSource;
+    QrPesqMaterialUNIDADE_MEDIDA: TStringField;
     procedure btnNovoClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure BtnPesqClick(Sender: TObject);

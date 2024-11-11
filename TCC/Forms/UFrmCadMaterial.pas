@@ -122,6 +122,7 @@ begin
   end;
 
   QrMaterialID_PRODUTO.AsInteger := QrTemp.FieldByName('MAX').AsInteger + 1;
+  QrMaterialQN_ESTOQUE.Value := 0;
 end;
 
 procedure TFrmCadMaterial.BtnCancelaClick(Sender: TObject);

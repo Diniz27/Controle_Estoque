@@ -12,7 +12,8 @@ uses
   UFrmCadPessoas in '..\Forms\UFrmCadPessoas.pas' {FrmCadPessoas},
   UValidaDados in '..\Forms\UValidaDados.pas',
   UFrmPesqMaterial in '..\Forms\UFrmPesqMaterial.pas' {FrmPesqMaterial},
-  UFrmCadMaterial in '..\Forms\UFrmCadMaterial.pas' {FrmCadMaterial};
+  UFrmCadMaterial in '..\Forms\UFrmCadMaterial.pas' {FrmCadMaterial},
+  UFrmPesqMovimento in '..\Forms\UFrmPesqMovimento.pas' {FrmPesqMovimento};
 
 {$R *.res}
 
