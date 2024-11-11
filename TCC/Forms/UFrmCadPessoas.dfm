@@ -68,7 +68,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       ExplicitWidth = 110
     end
     inherited BtnClose: TSpeedButton
-      Left = 926
+      Left = 922
       ExplicitLeft = 1025
     end
   end
@@ -106,7 +106,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
     object Panel1: TPanel
       Left = 0
       Top = 47
-      Width = 1008
+      Width = 1004
       Height = 218
       Anchors = [akLeft, akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
@@ -116,6 +116,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Font.Style = []
       ParentFont = False
       TabOrder = 0
+      ExplicitWidth = 1000
       object Label3: TLabel
         Left = 17
         Top = 11
@@ -670,14 +671,14 @@ inherited FrmCadPessoas: TFrmCadPessoas
       end
     end
     object PnlCancela: TPanel
-      Left = 875
+      Left = 871
       Top = 6
       Width = 97
       Height = 35
       Anchors = [akTop, akRight]
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 871
+      ExplicitLeft = 867
       object BtnCancela: TSpeedButton
         Left = 1
         Top = 1
@@ -699,7 +700,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       end
     end
     object PnlConfirma: TPanel
-      Left = 772
+      Left = 768
       Top = 6
       Width = 97
       Height = 35
@@ -707,7 +708,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Color = clHighlight
       ParentBackground = False
       TabOrder = 3
-      ExplicitLeft = 768
+      ExplicitLeft = 764
       object BtnConfirma: TSpeedButton
         Left = 1
         Top = 1
@@ -744,7 +745,9 @@ inherited FrmCadPessoas: TFrmCadPessoas
     Top = 8
   end
   object Qry: TFDQuery
-    CachedUpdates = True
+    BeforePost = QryBeforePost
+    MasterSource = FrmPesqPessoas.DsPesq
+    MasterFields = 'ID_PESSOA'
     Connection = Dm.FDconexao
     SQL.Strings = (
       'SELECT a.ID_PESSOA, a.NM_TIPOPESSOA, a.DT_CADASTRO, a.FL_PF_PJ,'
@@ -886,5 +889,12 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Origin = 'NEW_TABLECOL'
       Size = 45
     end
+  end
+  object QrTemp: TFDQuery
+    Connection = Dm.FDconexao
+    SQL.Strings = (
+      'SELECT max(ID_PRODUTO) FROM PRODUTOS')
+    Left = 696
+    Top = 24
   end
 end

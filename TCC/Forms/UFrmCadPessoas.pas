@@ -95,6 +95,7 @@ type
     QryNM_TELEFONE2: TStringField;
     QryNM_EMAIL: TStringField;
     QryNEW_TABLECOL: TStringField;
+    QrTemp: TFDQuery;
     procedure BtnPesqClick(Sender: TObject);
     procedure EdtCPFCNPJExit(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -124,7 +125,7 @@ procedure TFrmCadPessoas.BtnCancelaClick(Sender: TObject);
 begin
   inherited;
   if Qry.State in [DsEdit, DsInsert] then
-    Qry.CancelUpdates;
+    Qry.Cancel;
   Qry.Refresh;
 
   Close;
@@ -151,11 +152,17 @@ begin
 
   try
     Qry.Post;
-    Qry.Refresh;
-  finally
-    MessageDlg('Informação adicionada / editada com sucesso.', mtConfirmation, [mbOk], 0);
-    BtnCancela.Enabled := False;
 
+    if not Qry.Connection.InTransaction then
+      Qry.Connection.StartTransaction;
+
+    Qry.Connection.Commit;
+
+    Qry.Refresh;
+
+    MessageDlg('Informação adicionada / editada com sucesso.', mtConfirmation, [mbOk], 0);
+  finally
+    BtnCancela.Enabled := False;
     Close;
   end;
 
@@ -227,8 +234,20 @@ end;
 procedure TFrmCadPessoas.QryBeforePost(DataSet: TDataSet);
 begin
   inherited;
-  if Qry.State = dsInsert then
-//      Qrydt_cadastro.Value := Now;
+  if Qry.State in [dsBrowse, dsEdit] then
+    Exit;
+
+  with QrTemp do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'SELECT max(ID_PESSOA), current_date FROM PESSOAS ';
+    Open;
+  end;
+
+  QryID_PESSOA.AsInteger := QrTemp.FieldByName('MAX').AsInteger + 1;
+  QryDT_CADASTRO.AsDateTime := QrTemp.FieldByName('current_date').AsDateTime;
+
 end;
 
 procedure TFrmCadPessoas.RgTipoClick(Sender: TObject);

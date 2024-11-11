@@ -2,28 +2,28 @@ inherited FrmCadMaterial: TFrmCadMaterial
   Caption = 'FrmCadMaterial'
   ClientHeight = 650
   ClientWidth = 992
-  OnCreate = FormCreate
+  OnShow = FormShow
   ExplicitWidth = 1004
   ExplicitHeight = 688
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 992
-    ExplicitWidth = 834
+    ExplicitWidth = 988
     inherited Label2: TLabel
       Width = 113
       Caption = 'Cad. de Material'
       ExplicitWidth = 113
     end
     inherited BtnClose: TSpeedButton
-      Left = 922
+      Left = 918
+      ExplicitLeft = 922
     end
   end
   inherited PnlCentral: TPanel
     Width = 992
     Height = 585
-    ExplicitTop = 69
-    ExplicitWidth = 960
-    ExplicitHeight = 376
+    ExplicitWidth = 988
+    ExplicitHeight = 584
     object Label1: TLabel
       Left = 18
       Top = 21
@@ -38,14 +38,14 @@ inherited FrmCadMaterial: TFrmCadMaterial
       ParentFont = False
     end
     object PnlCancela: TPanel
-      Left = 855
+      Left = 851
       Top = 6
       Width = 97
       Height = 35
       Anchors = [akTop, akRight]
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 959
+      ExplicitLeft = 847
       object BtnCancela: TSpeedButton
         Left = 1
         Top = 1
@@ -67,7 +67,7 @@ inherited FrmCadMaterial: TFrmCadMaterial
       end
     end
     object PnlConfirma: TPanel
-      Left = 752
+      Left = 748
       Top = 6
       Width = 97
       Height = 35
@@ -75,7 +75,7 @@ inherited FrmCadMaterial: TFrmCadMaterial
       Color = clHighlight
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 856
+      ExplicitLeft = 744
       object BtnConfirma: TSpeedButton
         Left = 1
         Top = 1
@@ -112,6 +112,8 @@ inherited FrmCadMaterial: TFrmCadMaterial
       Font.Style = []
       ParentFont = False
       TabOrder = 2
+      ExplicitWidth = 988
+      ExplicitHeight = 537
       object LblNome: TLabel
         Left = 208
         Top = 9
@@ -402,6 +404,7 @@ inherited FrmCadMaterial: TFrmCadMaterial
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        ReadOnly = True
         TabOrder = 7
       end
     end
@@ -420,17 +423,19 @@ inherited FrmCadMaterial: TFrmCadMaterial
     Top = 24
   end
   object QrMaterial: TFDQuery
+    Active = True
     BeforePost = QrMaterialBeforePost
-    CachedUpdates = True
+    MasterSource = FrmPesqMaterial.DsPesqMaterial
+    MasterFields = 'ID_PRODUTO'
     Connection = Dm.FDconexao
     SQL.Strings = (
       
-        'SELECT ID_PRODUTO, FL_ATIVO, NM_PRODUTO, NM_PRODUTO_REDU, VL_PRO' +
-        'DUTO, ID_FORNECEDOR, ID_UNIMEDIDA, QN_ESTOQUE, QN_PESO_LIQ, NM_O' +
-        'BS, QN_CODBARRAS, QN_PESO_BRUTO'
+        'SELECT ID_PRODUTO, NM_PRODUTO, VL_PRODUTO, ID_FORNECEDOR, ID_UNI' +
+        'MEDIDA, QN_ESTOQUE, QN_PESO, NM_OBS, FL_ATIVO, QN_CODBARRAS, QN_' +
+        'PESO_BRUTO, QN_PESO_LIQ, NM_PRODUTO_REDU'
       'FROM PRODUTOS'
       'WHERE ID_PRODUTO = :ID_PRODUTO')
-    Left = 472
+    Left = 464
     Top = 16
     ParamData = <
       item
@@ -445,21 +450,9 @@ inherited FrmCadMaterial: TFrmCadMaterial
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object QrMaterialFL_ATIVO: TStringField
-      FieldName = 'FL_ATIVO'
-      Origin = 'FL_ATIVO'
-      Required = True
-      Size = 1
-    end
     object QrMaterialNM_PRODUTO: TStringField
       FieldName = 'NM_PRODUTO'
       Origin = 'NM_PRODUTO'
-      Required = True
-      Size = 45
-    end
-    object QrMaterialNM_PRODUTO_REDU: TStringField
-      FieldName = 'NM_PRODUTO_REDU'
-      Origin = 'NM_PRODUTO_REDU'
       Required = True
       Size = 45
     end
@@ -479,22 +472,37 @@ inherited FrmCadMaterial: TFrmCadMaterial
       FieldName = 'QN_ESTOQUE'
       Origin = 'QN_ESTOQUE'
     end
-    object QrMaterialQN_PESO_LIQ: TFloatField
-      FieldName = 'QN_PESO_LIQ'
-      Origin = 'QN_PESO_LIQ'
+    object QrMaterialQN_PESO: TFloatField
+      FieldName = 'QN_PESO'
+      Origin = 'QN_PESO'
     end
     object QrMaterialNM_OBS: TStringField
       FieldName = 'NM_OBS'
       Origin = 'NM_OBS'
       Size = 45
     end
-    object QrMaterialQN_CODBARRAS: TIntegerField
+    object QrMaterialFL_ATIVO: TStringField
+      FieldName = 'FL_ATIVO'
+      Origin = 'FL_ATIVO'
+      Size = 1
+    end
+    object QrMaterialQN_CODBARRAS: TStringField
       FieldName = 'QN_CODBARRAS'
       Origin = 'QN_CODBARRAS'
+      Size = 25
     end
     object QrMaterialQN_PESO_BRUTO: TFloatField
       FieldName = 'QN_PESO_BRUTO'
       Origin = 'QN_PESO_BRUTO'
+    end
+    object QrMaterialQN_PESO_LIQ: TFloatField
+      FieldName = 'QN_PESO_LIQ'
+      Origin = 'QN_PESO_LIQ'
+    end
+    object QrMaterialNM_PRODUTO_REDU: TStringField
+      FieldName = 'NM_PRODUTO_REDU'
+      Origin = 'NM_PRODUTO_REDU'
+      Size = 50
     end
   end
   object DsMaterial: TDataSource

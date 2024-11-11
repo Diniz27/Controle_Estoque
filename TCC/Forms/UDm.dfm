@@ -10,6 +10,7 @@ object Dm: TDm
       'Password=masterkey'
       'Server=localhost'
       'DriverID=FB')
+    Connected = True
     LoginPrompt = False
     Left = 104
     Top = 64

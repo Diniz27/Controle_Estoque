@@ -43,24 +43,25 @@ type
     DsUniMed: TDataSource;
     QrMaterial: TFDQuery;
     DsMaterial: TDataSource;
+    QrTemp: TFDQuery;
     QrMaterialID_PRODUTO: TIntegerField;
-    QrMaterialFL_ATIVO: TStringField;
     QrMaterialNM_PRODUTO: TStringField;
-    QrMaterialNM_PRODUTO_REDU: TStringField;
     QrMaterialVL_PRODUTO: TFloatField;
     QrMaterialID_FORNECEDOR: TIntegerField;
     QrMaterialID_UNIMEDIDA: TIntegerField;
     QrMaterialQN_ESTOQUE: TIntegerField;
-    QrMaterialQN_PESO_LIQ: TFloatField;
+    QrMaterialQN_PESO: TFloatField;
     QrMaterialNM_OBS: TStringField;
-    QrMaterialQN_CODBARRAS: TIntegerField;
+    QrMaterialFL_ATIVO: TStringField;
+    QrMaterialQN_CODBARRAS: TStringField;
     QrMaterialQN_PESO_BRUTO: TFloatField;
-    QrTemp: TFDQuery;
+    QrMaterialQN_PESO_LIQ: TFloatField;
+    QrMaterialNM_PRODUTO_REDU: TStringField;
 
     procedure btnConfirmaClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure BtnCancelaClick(Sender: TObject);
     procedure QrMaterialBeforePost(DataSet: TDataSet);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -78,23 +79,29 @@ uses UFrmPesqMaterial;
 
 procedure TFrmCadMaterial.btnConfirmaClick(Sender: TObject);
 begin
+
   try
     QrMaterial.Post;
-    QrMaterial.CommitUpdates;
-    QrMaterial.ApplyUpdates;
-    QrMaterial.Refresh;
-  finally
-    MessageDlg('Informação adicionada / editada com sucesso.', mtConfirmation, [mbOk], 0);
-    BtnCancela.Enabled := False;
 
+    if not QrMaterial.Connection.InTransaction then
+      QrMaterial.Connection.StartTransaction;
+
+    QrMaterial.Connection.Commit;
+
+    QrMaterial.Refresh;
+
+    MessageDlg('Informação adicionada / editada com sucesso.', mtConfirmation, [mbOk], 0);
+  finally
+    BtnCancela.Enabled := False;
     Close;
   end;
+
 end;
 
-procedure TFrmCadMaterial.FormCreate(Sender: TObject);
+procedure TFrmCadMaterial.FormShow(Sender: TObject);
 begin
   inherited;
-  QrMaterial.ParamByName('ID_PRODUTO').Value := FrmPesqMaterial.QrPesqMaterial.FieldByName('ID_PRODUTO').Value;
+//  QrMaterial.ParamByName('ID_PRODUTO').Value := FrmPesqMaterial.QrPesqMaterial.FieldByName('ID_PRODUTO').Value;
   QrMaterial.Open;
 
   QrUniMed.Open;
@@ -121,7 +128,7 @@ procedure TFrmCadMaterial.BtnCancelaClick(Sender: TObject);
 begin
   inherited;
   if QrMaterial.State in [DsEdit, DsInsert] then
-    QrMaterial.CancelUpdates;
+    QrMaterial.Cancel;
   QrMaterial.Refresh;
 
   Close;

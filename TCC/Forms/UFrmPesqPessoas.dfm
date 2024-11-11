@@ -2,31 +2,31 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
   Caption = 'FrmPesqPessoas'
   ClientHeight = 565
   ClientWidth = 1062
+  OnActivate = FormActivate
   OnShow = FormShow
   ExplicitWidth = 1074
   ExplicitHeight = 603
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1062
-    ExplicitWidth = 738
+    ExplicitWidth = 1058
     inherited Label2: TLabel
       Width = 134
       Caption = 'Pesquisa de Pessoa'
       ExplicitWidth = 134
     end
     inherited BtnClose: TSpeedButton
-      Left = 996
+      Left = 992
       ExplicitLeft = 680
     end
   end
   inherited PnlCentral: TPanel
     Width = 1062
     Height = 500
-    ExplicitTop = 69
-    ExplicitWidth = 1062
-    ExplicitHeight = 500
+    ExplicitWidth = 1058
+    ExplicitHeight = 499
     object BtnPesq: TSpeedButton
-      Left = 742
+      Left = 738
       Top = 10
       Width = 23
       Height = 20
@@ -35,6 +35,7 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
       Images = ImageList1
       HotImageIndex = 1
       OnClick = BtnPesqClick
+      ExplicitLeft = 742
     end
     object CbPesq: TComboBox
       Left = 2
@@ -58,8 +59,8 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
       Anchors = [akLeft, akTop, akRight, akBottom]
       BevelOuter = bvNone
       TabOrder = 2
-      ExplicitWidth = 738
-      ExplicitHeight = 330
+      ExplicitWidth = 1058
+      ExplicitHeight = 451
       object DBGrid1: TDBGrid
         Left = 0
         Top = 0
@@ -123,13 +124,14 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
     object EdtPesq: TEdit
       Left = 150
       Top = 10
-      Width = 587
+      Width = 583
       Height = 23
       Anchors = [akLeft, akTop, akRight]
       TabOrder = 0
+      ExplicitWidth = 579
     end
     object Panel2: TPanel
-      Left = 795
+      Left = 791
       Top = 7
       Width = 115
       Height = 30
@@ -143,6 +145,7 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
       ParentBackground = False
       ParentFont = False
       TabOrder = 3
+      ExplicitLeft = 787
       object btnNovo: TSpeedButton
         Left = 1
         Top = 1
@@ -167,7 +170,7 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
       end
     end
     object Panel3: TPanel
-      Left = 918
+      Left = 914
       Top = 6
       Width = 115
       Height = 30
@@ -181,6 +184,7 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
       ParentBackground = False
       ParentFont = False
       TabOrder = 4
+      ExplicitLeft = 910
       object btnEditar: TSpeedButton
         Left = 1
         Top = 1

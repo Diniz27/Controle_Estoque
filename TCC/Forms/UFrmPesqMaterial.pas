@@ -24,10 +24,20 @@ type
     btnEditar: TSpeedButton;
     QrPesqMaterial: TFDQuery;
     DsPesqMaterial: TDataSource;
+    QrPesqMaterialID_PRODUTO: TIntegerField;
+    QrPesqMaterialNM_PRODUTO: TStringField;
+    QrPesqMaterialVL_PRODUTO: TFloatField;
+    QrPesqMaterialID_FORNECEDOR: TIntegerField;
+    QrPesqMaterialID_UNIMEDIDA: TIntegerField;
+    QrPesqMaterialQN_ESTOQUE: TIntegerField;
+    QrPesqMaterialQN_PESO: TFloatField;
+    QrPesqMaterialNM_OBS: TStringField;
+    QrPesqMaterialFL_ATIVO: TStringField;
     procedure btnNovoClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure BtnPesqClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -106,6 +116,13 @@ begin
       Open;
     end;
   end;
+end;
+
+procedure TFrmPesqMaterial.FormActivate(Sender: TObject);
+begin
+  inherited;
+  QrPesqMaterial.Refresh;
+  DBGrid1.Refresh;
 end;
 
 procedure TFrmPesqMaterial.FormShow(Sender: TObject);

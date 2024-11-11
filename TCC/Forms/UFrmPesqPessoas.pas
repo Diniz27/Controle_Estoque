@@ -110,6 +110,7 @@ type
     procedure btnNovoClick(Sender: TObject);
 
     procedure btnEditarClick(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -165,6 +166,13 @@ begin
     end;
   end;
 
+end;
+
+procedure TFrmPesqPessoas.FormActivate(Sender: TObject);
+begin
+  inherited;
+  QryPesq.Refresh;
+  DBGrid1.Refresh;
 end;
 
 procedure TFrmPesqPessoas.FormShow(Sender: TObject);
