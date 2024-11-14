@@ -68,7 +68,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       ExplicitWidth = 110
     end
     inherited BtnClose: TSpeedButton
-      Left = 922
+      Left = 918
       ExplicitLeft = 1025
     end
   end
@@ -106,7 +106,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
     object Panel1: TPanel
       Left = 0
       Top = 47
-      Width = 1004
+      Width = 1000
       Height = 218
       Anchors = [akLeft, akTop, akRight]
       Font.Charset = DEFAULT_CHARSET
@@ -116,7 +116,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Font.Style = []
       ParentFont = False
       TabOrder = 0
-      ExplicitWidth = 1000
+      ExplicitWidth = 996
       object Label3: TLabel
         Left = 17
         Top = 11
@@ -188,6 +188,19 @@ inherited FrmCadPessoas: TFrmCadPessoas
         Width = 42
         Height = 17
         Caption = 'RG / IE'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowFrame
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object LblNumeroCracha: TLabel
+        Left = 512
+        Top = 161
+        Width = 95
+        Height = 17
+        Caption = 'N'#250'mero Crach'#225
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowFrame
         Font.Height = -13
@@ -312,8 +325,24 @@ inherited FrmCadPessoas: TFrmCadPessoas
         DataSource = Ds
         KeyField = 'ID_TIPO'
         ListField = 'NM_TIPO'
+        ListFieldIndex = 1
         ListSource = DsTipoPessoa
         TabOrder = 6
+      end
+      object EdtNumeroCracha: TDBEdit
+        Left = 512
+        Top = 184
+        Width = 225
+        Height = 25
+        DataField = 'ID_CRACHA'
+        DataSource = Ds
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 7
       end
     end
     object Panel2: TPanel
@@ -646,14 +675,14 @@ inherited FrmCadPessoas: TFrmCadPessoas
       end
     end
     object PnlCancela: TPanel
-      Left = 871
+      Left = 867
       Top = 6
       Width = 97
       Height = 35
       Anchors = [akTop, akRight]
       ParentBackground = False
       TabOrder = 2
-      ExplicitLeft = 867
+      ExplicitLeft = 863
       object BtnCancela: TSpeedButton
         Left = 1
         Top = 1
@@ -675,7 +704,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       end
     end
     object PnlConfirma: TPanel
-      Left = 768
+      Left = 764
       Top = 6
       Width = 97
       Height = 35
@@ -683,7 +712,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       Color = clHighlight
       ParentBackground = False
       TabOrder = 3
-      ExplicitLeft = 764
+      ExplicitLeft = 760
       object BtnConfirma: TSpeedButton
         Left = 1
         Top = 1
@@ -716,11 +745,13 @@ inherited FrmCadPessoas: TFrmCadPessoas
   end
   object Ds: TDataSource
     DataSet = Qry
+    OnDataChange = DsDataChange
     Left = 816
     Top = 8
   end
   object Qry: TFDQuery
     BeforePost = QryBeforePost
+    AfterScroll = QryAfterScroll
     MasterSource = FrmPesqPessoas.DsPesq
     MasterFields = 'ID_PESSOA'
     Connection = Dm.FDconexao
@@ -733,7 +764,7 @@ inherited FrmCadPessoas: TFrmCadPessoas
       
         '    a.ID_IBGE, a.NM_CIDADE, a.NM_ESTADO, a.NM_TELEFONE1, a.NM_TE' +
         'LEFONE2,'
-      '    a.NM_EMAIL, a.NEW_TABLECOL'
+      '    a.NM_EMAIL, a.NEW_TABLECOL, a.ID_CRACHA'
       'FROM PESSOAS a'
       'WHERE'
       '  a.ID_PESSOA = :pessoa')
@@ -853,6 +884,10 @@ inherited FrmCadPessoas: TFrmCadPessoas
       FieldName = 'NEW_TABLECOL'
       Origin = 'NEW_TABLECOL'
       Size = 45
+    end
+    object QryID_CRACHA: TIntegerField
+      FieldName = 'ID_CRACHA'
+      Origin = 'ID_CRACHA'
     end
   end
   object QrTemp: TFDQuery

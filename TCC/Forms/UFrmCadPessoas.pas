@@ -20,6 +20,7 @@ type
     Cidade: string;
     Uf: string;
     IBGE: string;
+    Erro: string;
   end;
 
 
@@ -97,6 +98,9 @@ type
     QryNM_TELEFONE2: TStringField;
     QryNM_EMAIL: TStringField;
     QryNEW_TABLECOL: TStringField;
+    LblNumeroCracha: TLabel;
+    EdtNumeroCracha: TDBEdit;
+    QryID_CRACHA: TIntegerField;
     procedure BtnPesqClick(Sender: TObject);
     procedure EdtCPFCNPJExit(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -106,6 +110,8 @@ type
     procedure QryBeforePost(DataSet: TDataSet);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure EdtCEPExit(Sender: TObject);
+    procedure QryAfterScroll(DataSet: TDataSet);
+    procedure DsDataChange(Sender: TObject; Field: TField);
   private
     function ConsultaCEP(CEP: string): TReturnCEP;
     { Private declarations }
@@ -233,6 +239,30 @@ begin
   QrTipoPessoa.Open;
 end;
 
+procedure TFrmCadPessoas.QryAfterScroll(DataSet: TDataSet);
+begin
+  inherited;
+  if RgTipo.ItemIndex = 0 then
+  begin
+    LblNome.Caption := 'Nome';
+    LblNomeRedu.Caption := 'Nome Reduzido';
+    LblCPFCNPJ.Caption := 'CPF';
+    LblRGIE.Caption := 'RG';
+
+    Qrycpf_cnpj.EditMask := '999 999 999\-99;0;_';
+  end
+  else if RgTipo.ItemIndex = 1 then
+  begin
+    LblNome.Caption := 'Razão Social';
+    LblNomeRedu.Caption := 'Nome Fantasia';
+    LblCPFCNPJ.Caption := 'CNPJ';
+    LblRGIE.Caption := 'Inscrição Estadual';
+
+    Qrycpf_cnpj.EditMask := '99 999 999\/9999\-99;0;_';
+  end;
+
+end;
+
 procedure TFrmCadPessoas.QryBeforePost(DataSet: TDataSet);
 begin
   inherited;
@@ -262,7 +292,7 @@ begin
     LblCPFCNPJ.Caption := 'CPF';
     LblRGIE.Caption := 'RG';
 
-//    Qrycpf_cnpj.EditMask := '999 999 999\-99;0;_';
+    Qrycpf_cnpj.EditMask := '999 999 999\-99;0;_';
   end
   else if RgTipo.ItemIndex = 1 then
   begin
@@ -271,7 +301,7 @@ begin
     LblCPFCNPJ.Caption := 'CNPJ';
     LblRGIE.Caption := 'Inscrição Estadual';
 
-//    Qrycpf_cnpj.EditMask := '99 999 999\/9999\-99;0;_';
+    Qrycpf_cnpj.EditMask := '99 999 999\/9999\-99;0;_';
   end;
 end;
 
@@ -292,6 +322,9 @@ begin
       // Verifica se o XML foi carregado corretamente
       if Assigned(tempXML) then
       begin
+        if tempXML.ChildNodes.FindNode('erro') <> nil then
+          raise Exception.Create('Erro ao procurar esse CEP.');
+
         Result.Logradouro := tempXML.ChildValues['logradouro'];
         Result.Bairro := tempXML.ChildValues['bairro'];
         Result.Cidade := tempXML.ChildValues['localidade'];
@@ -315,6 +348,27 @@ begin
   end;
 
 
+end;
+
+procedure TFrmCadPessoas.DsDataChange(Sender: TObject; Field: TField);
+begin
+  inherited;
+  if CbTipoPessoa.KeyValue = 2 then
+  begin
+    LblNumeroCracha.Enabled := False;
+    LblNumeroCracha.Visible := False;
+
+    EdtNumeroCracha.Enabled := False;
+    EdtNumeroCracha.Visible := False;
+  end
+  else
+  begin
+    LblNumeroCracha.Enabled := True;
+    LblNumeroCracha.Visible := True;
+
+    EdtNumeroCracha.Enabled := True;
+    EdtNumeroCracha.Visible := True;
+  end;
 end;
 
 end.
