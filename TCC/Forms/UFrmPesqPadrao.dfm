@@ -1,42 +1,200 @@
-object FrmPadrao: TFrmPadrao
+object FrmPesqPadrao: TFrmPesqPadrao
   Left = 0
   Top = 0
-  Caption = 'FrmPadrao'
-  ClientHeight = 442
-  ClientWidth = 842
+  BorderIcons = []
+  BorderStyle = bsSingle
+  Caption = 'FrmPesqPadrao'
+  ClientHeight = 421
+  ClientWidth = 854
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  FormStyle = fsMDIChild
-  Visible = True
-  WindowState = wsMaximized
+  Position = poDesktopCenter
   OnClose = FormClose
   TextHeight = 15
+  object PnlCentral: TPanel
+    Left = 0
+    Top = 65
+    Width = 854
+    Height = 356
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 0
+    ExplicitLeft = -324
+    ExplicitWidth = 842
+    ExplicitHeight = 377
+    DesignSize = (
+      854
+      356)
+    object Label3: TLabel
+      Left = 18
+      Top = 19
+      Width = 43
+      Height = 17
+      Caption = 'Campo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowFrame
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label1: TLabel
+      Left = 218
+      Top = 19
+      Width = 57
+      Height = 17
+      Caption = 'Condi'#231#227'o'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowFrame
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 18
+      Top = 75
+      Width = 61
+      Height = 17
+      Caption = 'Express'#227'o'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowFrame
+      Font.Height = -13
+      Font.Name = 'Segoe UI'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object PnlCancela: TPanel
+      Left = 724
+      Top = 6
+      Width = 97
+      Height = 35
+      Anchors = [akTop, akRight]
+      ParentBackground = False
+      TabOrder = 0
+      ExplicitLeft = 679
+      object BtnCancela: TSpeedButton
+        Left = 1
+        Top = 1
+        Width = 95
+        Height = 33
+        Cursor = crHandPoint
+        Align = alClient
+        Caption = 'Cancelar'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -14
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitLeft = -24
+        ExplicitTop = 0
+      end
+    end
+    object PnlConfirma: TPanel
+      Left = 616
+      Top = 6
+      Width = 102
+      Height = 35
+      Anchors = [akTop, akRight]
+      Color = clHighlight
+      ParentBackground = False
+      TabOrder = 1
+      ExplicitLeft = 571
+      object BtnConfirma: TSpeedButton
+        Left = 1
+        Top = 1
+        Width = 100
+        Height = 33
+        Cursor = crHandPoint
+        Align = alClient
+        Caption = 'Confirmar'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -14
+        Font.Name = 'Segoe UI'
+        Font.Style = [fsBold]
+        ParentFont = False
+        ExplicitLeft = -47
+        ExplicitTop = 0
+      end
+    end
+    object Panel1: TPanel
+      Left = 0
+      Top = 136
+      Width = 854
+      Height = 220
+      Align = alBottom
+      TabOrder = 2
+      object DBGrid1: TDBGrid
+        Left = 1
+        Top = 1
+        Width = 852
+        Height = 218
+        Align = alClient
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -12
+        TitleFont.Name = 'Segoe UI'
+        TitleFont.Style = []
+      end
+    end
+    object ComboBox1: TComboBox
+      Left = 18
+      Top = 40
+      Width = 145
+      Height = 23
+      TabOrder = 3
+      Text = 'ComboBox1'
+    end
+    object ComboBox2: TComboBox
+      Left = 218
+      Top = 40
+      Width = 145
+      Height = 23
+      TabOrder = 4
+      Text = 'ComboBox1'
+    end
+    object Edit1: TEdit
+      Left = 18
+      Top = 96
+      Width = 814
+      Height = 23
+      TabOrder = 5
+      Text = 'Edit1'
+    end
+  end
   object PnlTopo: TPanel
     Left = 0
     Top = 0
-    Width = 842
+    Width = 854
     Height = 65
     Align = alTop
     BevelKind = bkTile
     BevelOuter = bvNone
     Color = clWhite
     ParentBackground = False
-    TabOrder = 0
-    ExplicitWidth = 838
+    TabOrder = 1
+    ExplicitLeft = -324
+    ExplicitWidth = 842
     DesignSize = (
-      838
+      850
       61)
     object Label4: TLabel
       Left = 103
       Top = 21
-      Width = 153
+      Width = 77
       Height = 20
       Alignment = taCenter
-      Caption = 'Voc'#234' esta na central de'
+      Caption = 'Pesquisa de'
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clHighlight
       Font.Height = -15
@@ -56,7 +214,7 @@ object FrmPadrao: TFrmPadrao
       ExplicitHeight = 50
     end
     object Label2: TLabel
-      Left = 260
+      Left = 186
       Top = 21
       Width = 90
       Height = 20
@@ -70,7 +228,7 @@ object FrmPadrao: TFrmPadrao
       ParentFont = False
     end
     object BtnClose: TSpeedButton
-      Left = 772
+      Left = 784
       Top = 13
       Width = 35
       Height = 35
@@ -79,25 +237,12 @@ object FrmPadrao: TFrmPadrao
       ImageIndex = 0
       Images = ImageList1
       Flat = True
-      OnClick = BtnCloseClick
-      ExplicitLeft = 784
     end
-  end
-  object PnlCentral: TPanel
-    Left = 0
-    Top = 65
-    Width = 842
-    Height = 377
-    Align = alClient
-    BevelOuter = bvNone
-    TabOrder = 1
-    ExplicitWidth = 838
-    ExplicitHeight = 376
   end
   object ImageList1: TImageList
     Height = 50
     Width = 50
-    Left = 616
+    Left = 490
     Top = 32
     Bitmap = {
       494C010102000800040032003200FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600

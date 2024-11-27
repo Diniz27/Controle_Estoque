@@ -24,14 +24,14 @@ type
     PopupMenu1: TPopupMenu;
     ConfirmarSaida1: TMenuItem;
     Panel2: TPanel;
-    btnNovo: TSpeedButton;
+    btnNovoEntrada: TSpeedButton;
     Panel4: TPanel;
     SpeedButton2: TSpeedButton;
     CbPesq: TComboBox;
     EdtPesq: TEdit;
     BtnPesq: TSpeedButton;
 
-    procedure btnNovoClick(Sender: TObject);
+    procedure btnNovoEntradaClick(Sender: TObject);
 
     procedure SpeedButton1Click(Sender: TObject);
 
@@ -49,14 +49,15 @@ implementation
 
 {$R *.dfm}
 
-procedure TFrmPesqMovimento.btnNovoClick(Sender: TObject);
+uses UFrmEntradaMovimento;
+
+procedure TFrmPesqMovimento.btnNovoEntradaClick(Sender: TObject);
 begin
   Try
-//    EsconderPainel;
-//    FrmProdutos := TFrmProdutos.Create(Self);
-//    FrmProdutos.Show;
+    FrmEntradaMovimento := TFrmEntradaMovimento.Create(Self);
+    FrmEntradaMovimento.Show;
   except
-//    FrmProdutos.Free;
+    FrmEntradaMovimento.Free;
   End;
 end;
 

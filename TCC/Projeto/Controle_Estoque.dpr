@@ -13,7 +13,10 @@ uses
   UValidaDados in '..\Forms\UValidaDados.pas',
   UFrmPesqMaterial in '..\Forms\UFrmPesqMaterial.pas' {FrmPesqMaterial},
   UFrmCadMaterial in '..\Forms\UFrmCadMaterial.pas' {FrmCadMaterial},
-  UFrmPesqMovimento in '..\Forms\UFrmPesqMovimento.pas' {FrmPesqMovimento};
+  UFrmPesqMovimento in '..\Forms\UFrmPesqMovimento.pas' {FrmPesqMovimento},
+  UFrmEntradaMovimento in '..\Forms\UFrmEntradaMovimento.pas' {FrmEntradaMovimento},
+  UFrmPesqPadrao in '..\Forms\UFrmPesqPadrao.pas' {FrmPesqPadrao},
+  UFrmPesqFornecedor in '..\Forms\UFrmPesqFornecedor.pas' {FrmPesqFornecedor};
 
 {$R *.res}
 

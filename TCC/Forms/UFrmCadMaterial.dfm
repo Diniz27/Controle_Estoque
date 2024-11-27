@@ -15,7 +15,7 @@ inherited FrmCadMaterial: TFrmCadMaterial
       ExplicitWidth = 113
     end
     inherited BtnClose: TSpeedButton
-      Left = 918
+      Left = 914
       ExplicitLeft = 922
     end
   end
@@ -38,14 +38,13 @@ inherited FrmCadMaterial: TFrmCadMaterial
       ParentFont = False
     end
     object PnlCancela: TPanel
-      Left = 851
+      Left = 847
       Top = 6
       Width = 97
       Height = 35
       Anchors = [akTop, akRight]
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 847
       object BtnCancela: TSpeedButton
         Left = 1
         Top = 1
@@ -67,7 +66,7 @@ inherited FrmCadMaterial: TFrmCadMaterial
       end
     end
     object PnlConfirma: TPanel
-      Left = 748
+      Left = 744
       Top = 6
       Width = 97
       Height = 35
@@ -75,7 +74,7 @@ inherited FrmCadMaterial: TFrmCadMaterial
       Color = clHighlight
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 744
+      ExplicitLeft = 740
       object BtnConfirma: TSpeedButton
         Left = 1
         Top = 1
@@ -385,7 +384,7 @@ inherited FrmCadMaterial: TFrmCadMaterial
       object DBMemo1: TDBMemo
         Left = 16
         Top = 328
-        Width = 833
+        Width = 935
         Height = 41
         DataField = 'NM_OBS'
         DataSource = DsMaterial

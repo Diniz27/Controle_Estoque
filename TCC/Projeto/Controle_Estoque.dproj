@@ -177,6 +177,18 @@
             <Form>FrmPesqMovimento</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Forms\UFrmEntradaMovimento.pas">
+            <Form>FrmEntradaMovimento</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Forms\UFrmPesqPadrao.pas">
+            <Form>FrmPesqPadrao</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\Forms\UFrmPesqFornecedor.pas">
+            <Form>FrmPesqFornecedor</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
