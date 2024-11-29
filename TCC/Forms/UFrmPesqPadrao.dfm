@@ -23,9 +23,8 @@ object FrmPesqPadrao: TFrmPesqPadrao
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 0
-    ExplicitLeft = -324
-    ExplicitWidth = 842
-    ExplicitHeight = 377
+    ExplicitWidth = 850
+    ExplicitHeight = 355
     DesignSize = (
       854
       356)
@@ -69,14 +68,14 @@ object FrmPesqPadrao: TFrmPesqPadrao
       ParentFont = False
     end
     object PnlCancela: TPanel
-      Left = 724
+      Left = 720
       Top = 6
       Width = 97
       Height = 35
       Anchors = [akTop, akRight]
       ParentBackground = False
       TabOrder = 0
-      ExplicitLeft = 679
+      ExplicitLeft = 716
       object BtnCancela: TSpeedButton
         Left = 1
         Top = 1
@@ -92,12 +91,13 @@ object FrmPesqPadrao: TFrmPesqPadrao
         Font.Name = 'Segoe UI'
         Font.Style = [fsBold]
         ParentFont = False
-        ExplicitLeft = -24
+        OnClick = BtnCancelaClick
+        ExplicitLeft = 0
         ExplicitTop = 0
       end
     end
     object PnlConfirma: TPanel
-      Left = 616
+      Left = 612
       Top = 6
       Width = 102
       Height = 35
@@ -105,7 +105,7 @@ object FrmPesqPadrao: TFrmPesqPadrao
       Color = clHighlight
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 571
+      ExplicitLeft = 608
       object BtnConfirma: TSpeedButton
         Left = 1
         Top = 1
@@ -132,6 +132,8 @@ object FrmPesqPadrao: TFrmPesqPadrao
       Height = 220
       Align = alBottom
       TabOrder = 2
+      ExplicitTop = 135
+      ExplicitWidth = 850
       object DBGrid1: TDBGrid
         Left = 1
         Top = 1
@@ -153,7 +155,6 @@ object FrmPesqPadrao: TFrmPesqPadrao
       Width = 145
       Height = 23
       TabOrder = 3
-      Text = 'ComboBox1'
     end
     object ComboBox2: TComboBox
       Left = 218
@@ -183,8 +184,7 @@ object FrmPesqPadrao: TFrmPesqPadrao
     Color = clWhite
     ParentBackground = False
     TabOrder = 1
-    ExplicitLeft = -324
-    ExplicitWidth = 842
+    ExplicitWidth = 850
     DesignSize = (
       850
       61)
@@ -228,7 +228,7 @@ object FrmPesqPadrao: TFrmPesqPadrao
       ParentFont = False
     end
     object BtnClose: TSpeedButton
-      Left = 784
+      Left = 780
       Top = 13
       Width = 35
       Height = 35
@@ -237,6 +237,8 @@ object FrmPesqPadrao: TFrmPesqPadrao
       ImageIndex = 0
       Images = ImageList1
       Flat = True
+      OnClick = BtnCloseClick
+      ExplicitLeft = 784
     end
   end
   object ImageList1: TImageList

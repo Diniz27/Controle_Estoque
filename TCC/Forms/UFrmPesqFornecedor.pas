@@ -113,9 +113,9 @@ begin
   finally
 
     if expressao = '' then
-      QrFornecedor.SQL.Add(cod_sql)
+      QrFornecedor.SQL.Add(cod_sql + 'ORDER BY ID_PESSOA')
     else
-      QrFornecedor.SQL.Add(cod_sql + expressao);
+      QrFornecedor.SQL.Add(cod_sql + expressao + 'ORDER BY ID_PESSOA');
 
     QrFornecedor.Open;
   end;

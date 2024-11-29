@@ -29,6 +29,8 @@ type
     Edit1: TEdit;
     Label5: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure BtnCloseClick(Sender: TObject);
+    procedure BtnCancelaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,6 +43,16 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFrmPesqPadrao.BtnCancelaClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TFrmPesqPadrao.BtnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
 
 procedure TFrmPesqPadrao.FormClose(Sender: TObject; var Action: TCloseAction);
 begin

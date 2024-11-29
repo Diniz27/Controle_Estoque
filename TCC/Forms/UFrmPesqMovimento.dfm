@@ -2,6 +2,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
   Caption = 'FrmPesqMovimento'
   ClientWidth = 1061
   ExplicitWidth = 1073
+  ExplicitHeight = 480
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1061
@@ -15,7 +16,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
       ExplicitWidth = 171
     end
     inherited BtnClose: TSpeedButton
-      Left = 983
+      Left = 979
       ExplicitLeft = 772
     end
   end
@@ -23,7 +24,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
     Width = 1061
     ExplicitWidth = 1057
     object BtnPesq: TSpeedButton
-      Left = 714
+      Left = 710
       Top = 10
       Width = 23
       Height = 20
@@ -105,86 +106,13 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
           end>
       end
     end
-    object Panel2: TPanel
-      Left = 784
-      Top = 7
-      Width = 115
-      Height = 30
-      Anchors = [akTop, akRight]
-      Color = clHighlight
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBackground
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 1
-      ExplicitLeft = 780
-      object btnNovoEntrada: TSpeedButton
-        Left = 1
-        Top = 1
-        Width = 113
-        Height = 28
-        Cursor = crHandPoint
-        Align = alClient
-        Caption = 'Nova Entrada'
-        Flat = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -15
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        OnClick = btnNovoEntradaClick
-        ExplicitLeft = -6
-        ExplicitTop = -1
-        ExplicitWidth = 96
-        ExplicitHeight = 51
-      end
-    end
-    object Panel4: TPanel
-      Left = 905
-      Top = 7
-      Width = 115
-      Height = 30
-      Anchors = [akTop, akRight]
-      Color = clHighlight
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBackground
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentBackground = False
-      ParentFont = False
-      TabOrder = 2
-      ExplicitLeft = 901
-      object SpeedButton2: TSpeedButton
-        Left = 1
-        Top = 1
-        Width = 113
-        Height = 28
-        Cursor = crHandPoint
-        Align = alClient
-        Caption = 'Nova Sa'#237'da'
-        Flat = True
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -15
-        Font.Name = 'Segoe UI'
-        Font.Style = []
-        ParentFont = False
-        OnClick = SpeedButton2Click
-        ExplicitLeft = 0
-      end
-    end
     object CbPesq: TComboBox
       Left = 2
       Top = 10
       Width = 145
       Height = 23
       ItemIndex = 0
-      TabOrder = 3
+      TabOrder = 1
       Text = 'C'#243'd. Pessoa'
       Items.Strings = (
         'C'#243'd. Pessoa'
@@ -194,11 +122,84 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
     object EdtPesq: TEdit
       Left = 150
       Top = 10
-      Width = 559
+      Width = 555
       Height = 23
       Anchors = [akLeft, akTop, akRight]
+      TabOrder = 2
+      ExplicitWidth = 551
+    end
+    object Panel3: TPanel
+      Left = 910
+      Top = 7
+      Width = 115
+      Height = 30
+      Anchors = [akTop, akRight]
+      Color = clBtnShadow
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBackground
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentBackground = False
+      ParentFont = False
+      TabOrder = 3
+      ExplicitLeft = 906
+      object btnEditar: TSpeedButton
+        Left = 1
+        Top = 1
+        Width = 113
+        Height = 28
+        Cursor = crHandPoint
+        Align = alClient
+        Caption = 'Editar'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        ExplicitLeft = 19
+        ExplicitTop = 0
+      end
+    end
+    object Panel4: TPanel
+      Left = 787
+      Top = 7
+      Width = 115
+      Height = 30
+      Anchors = [akTop, akRight]
+      Color = clHighlight
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clBackground
+      Font.Height = -12
+      Font.Name = 'Segoe UI'
+      Font.Style = []
+      ParentBackground = False
+      ParentFont = False
       TabOrder = 4
-      ExplicitWidth = 555
+      ExplicitLeft = 783
+      object btnNovo: TSpeedButton
+        Left = 1
+        Top = 1
+        Width = 113
+        Height = 28
+        Cursor = crHandPoint
+        Align = alClient
+        Caption = 'Novo'
+        Flat = True
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -15
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
+        OnClick = btnNovoEntradaClick
+        ExplicitLeft = 21
+        ExplicitTop = 23
+        ExplicitWidth = 96
+        ExplicitHeight = 51
+      end
     end
   end
   inherited ImageList1: TImageList

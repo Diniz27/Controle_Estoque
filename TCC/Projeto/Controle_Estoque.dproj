@@ -189,6 +189,10 @@
             <Form>FrmPesqFornecedor</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="..\Forms\UFrmPesqItem.pas">
+            <Form>FrmPesqItem</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

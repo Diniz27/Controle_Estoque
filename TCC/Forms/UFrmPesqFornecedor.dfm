@@ -3,25 +3,21 @@ inherited FrmPesqFornecedor: TFrmPesqFornecedor
   OnShow = FormShow
   TextHeight = 15
   inherited PnlCentral: TPanel
-    ExplicitLeft = 0
-    ExplicitWidth = 850
-    ExplicitHeight = 355
     inherited PnlCancela: TPanel
-      Left = 720
-      ExplicitLeft = 716
+      Left = 716
+      ExplicitLeft = 712
       inherited BtnCancela: TSpeedButton
         OnClick = BtnCancelaClick
       end
     end
     inherited PnlConfirma: TPanel
-      Left = 612
-      ExplicitLeft = 608
+      Left = 608
+      ExplicitLeft = 604
       inherited BtnConfirma: TSpeedButton
         OnClick = BtnConfirmaClick
       end
     end
     inherited Panel1: TPanel
-      ExplicitTop = 135
       inherited DBGrid1: TDBGrid
         DataSource = DsFornecedor
         Columns = <
@@ -69,8 +65,6 @@ inherited FrmPesqFornecedor: TFrmPesqFornecedor
     end
   end
   inherited PnlTopo: TPanel
-    ExplicitLeft = 0
-    ExplicitWidth = 850
     inherited Label2: TLabel
       Width = 79
       Caption = 'Fornecedor'

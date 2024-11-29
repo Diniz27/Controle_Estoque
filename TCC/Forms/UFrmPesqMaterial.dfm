@@ -19,7 +19,7 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
       ExplicitWidth = 144
     end
     inherited BtnClose: TSpeedButton
-      Left = 988
+      Left = 984
       ExplicitLeft = 992
     end
   end
@@ -29,7 +29,7 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
     ExplicitWidth = 1058
     ExplicitHeight = 499
     object BtnPesq: TSpeedButton
-      Left = 739
+      Left = 735
       Top = 10
       Width = 23
       Height = 20
@@ -56,11 +56,11 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
     object EdtPesq: TEdit
       Left = 150
       Top = 10
-      Width = 583
+      Width = 579
       Height = 23
       Anchors = [akLeft, akTop, akRight]
       TabOrder = 1
-      ExplicitWidth = 579
+      ExplicitWidth = 575
     end
     object Panel1: TPanel
       Left = 0
@@ -92,11 +92,6 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
           item
             Expanded = False
             FieldName = 'ID_PRODUTO'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Segoe UI'
-            Font.Style = []
             Title.Caption = 'C'#243'd. Material'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -109,11 +104,6 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
           item
             Expanded = False
             FieldName = 'NM_PRODUTO'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Segoe UI'
-            Font.Style = []
             Title.Caption = 'Nome Material'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -126,11 +116,6 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
           item
             Expanded = False
             FieldName = 'FL_ATIVO'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Segoe UI'
-            Font.Style = []
             Title.Caption = 'Ativo'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -143,11 +128,6 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
           item
             Expanded = False
             FieldName = 'NM_PRODUTO_REDU'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Segoe UI'
-            Font.Style = []
             Title.Caption = 'Nome Reduzido'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -160,11 +140,6 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
           item
             Expanded = False
             FieldName = 'QN_ESTOQUE'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Segoe UI'
-            Font.Style = []
             Title.Caption = 'Estoque'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -177,11 +152,6 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
           item
             Expanded = False
             FieldName = 'VL_PRODUTO'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Segoe UI'
-            Font.Style = []
             Title.Caption = 'Valor Material'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -200,7 +170,7 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
       end
     end
     object Panel2: TPanel
-      Left = 791
+      Left = 787
       Top = 7
       Width = 115
       Height = 30
@@ -214,7 +184,7 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
       ParentBackground = False
       ParentFont = False
       TabOrder = 3
-      ExplicitLeft = 787
+      ExplicitLeft = 783
       object btnNovo: TSpeedButton
         Left = 1
         Top = 1
@@ -238,7 +208,7 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
       end
     end
     object Panel3: TPanel
-      Left = 914
+      Left = 910
       Top = 7
       Width = 115
       Height = 30
@@ -252,7 +222,7 @@ inherited FrmPesqMaterial: TFrmPesqMaterial
       ParentBackground = False
       ParentFont = False
       TabOrder = 4
-      ExplicitLeft = 910
+      ExplicitLeft = 906
       object btnEditar: TSpeedButton
         Left = 1
         Top = 1

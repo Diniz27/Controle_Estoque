@@ -15,7 +15,7 @@ inherited FrmCadMaterial: TFrmCadMaterial
       ExplicitWidth = 113
     end
     inherited BtnClose: TSpeedButton
-      Left = 914
+      Left = 906
       ExplicitLeft = 922
     end
   end
@@ -38,13 +38,14 @@ inherited FrmCadMaterial: TFrmCadMaterial
       ParentFont = False
     end
     object PnlCancela: TPanel
-      Left = 847
+      Left = 839
       Top = 6
       Width = 97
       Height = 35
       Anchors = [akTop, akRight]
       ParentBackground = False
       TabOrder = 0
+      ExplicitLeft = 835
       object BtnCancela: TSpeedButton
         Left = 1
         Top = 1
@@ -66,7 +67,7 @@ inherited FrmCadMaterial: TFrmCadMaterial
       end
     end
     object PnlConfirma: TPanel
-      Left = 744
+      Left = 736
       Top = 6
       Width = 97
       Height = 35
@@ -74,7 +75,7 @@ inherited FrmCadMaterial: TFrmCadMaterial
       Color = clHighlight
       ParentBackground = False
       TabOrder = 1
-      ExplicitLeft = 740
+      ExplicitLeft = 732
       object BtnConfirma: TSpeedButton
         Left = 1
         Top = 1

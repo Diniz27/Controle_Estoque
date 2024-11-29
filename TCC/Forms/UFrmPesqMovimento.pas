@@ -23,13 +23,13 @@ type
     DBGrid1: TDBGrid;
     PopupMenu1: TPopupMenu;
     ConfirmarSaida1: TMenuItem;
-    Panel2: TPanel;
-    btnNovoEntrada: TSpeedButton;
-    Panel4: TPanel;
-    SpeedButton2: TSpeedButton;
     CbPesq: TComboBox;
     EdtPesq: TEdit;
     BtnPesq: TSpeedButton;
+    Panel3: TPanel;
+    btnEditar: TSpeedButton;
+    Panel4: TPanel;
+    btnNovo: TSpeedButton;
 
     procedure btnNovoEntradaClick(Sender: TObject);
 
