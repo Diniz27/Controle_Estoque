@@ -1,6 +1,8 @@
 inherited FrmPesqMovimento: TFrmPesqMovimento
   Caption = 'FrmPesqMovimento'
   ClientWidth = 1061
+  OnActivate = FormActivate
+  OnShow = FormShow
   ExplicitWidth = 1073
   ExplicitHeight = 480
   TextHeight = 15
@@ -52,7 +54,9 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
         Height = 331
         Align = alClient
         DataSource = DsPesq
+        Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
         PopupMenu = PopupMenu1
+        ReadOnly = True
         TabOrder = 0
         TitleFont.Charset = DEFAULT_CHARSET
         TitleFont.Color = clWindowText
@@ -62,7 +66,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
         Columns = <
           item
             Expanded = False
-            FieldName = 'ID_MOVIMENTO'
+            FieldName = 'ID_ENTRADA'
             Title.Caption = 'C'#243'd. Movimento'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -73,8 +77,19 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
           end
           item
             Expanded = False
-            FieldName = 'ID_PESSOA'
-            Title.Caption = 'C'#243'd. Pessoa'
+            FieldName = 'ID_FORNECEDOR'
+            Title.Caption = 'C'#243'd. Fornecedor'
+            Title.Font.Charset = DEFAULT_CHARSET
+            Title.Font.Color = clWindowText
+            Title.Font.Height = -12
+            Title.Font.Name = 'Segoe UI'
+            Title.Font.Style = [fsBold]
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'NM_FORNECEDOR'
+            Title.Caption = 'Nome Fornecedor'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
             Title.Font.Height = -12
@@ -85,18 +100,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
           item
             Expanded = False
             FieldName = 'TIPO_MOVIMENTO'
-            Title.Caption = 'Tipo Movimento'
-            Title.Font.Charset = DEFAULT_CHARSET
-            Title.Font.Color = clWindowText
-            Title.Font.Height = -12
-            Title.Font.Name = 'Segoe UI'
-            Title.Font.Style = [fsBold]
-            Visible = True
-          end
-          item
-            Expanded = False
-            FieldName = 'FL_CONFIRMACAO'
-            Title.Caption = 'Confirmacao'
+            Title.Caption = 'Tipo de Movimento'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
             Title.Font.Height = -12
@@ -159,6 +163,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
+        OnClick = btnEditarClick
         ExplicitLeft = 19
         ExplicitTop = 0
       end
@@ -209,35 +214,60 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
   object QryPesq: TFDQuery
     Connection = Dm.FDconexao
     SQL.Strings = (
+      'SELECT '
       
-        'SELECT a.ID_MOVIMENTO, a.TIPO_MOVIMENTO, a.FL_CONFIRMACAO, a.ID_' +
-        'PESSOA'
-      'FROM MOVIMENTO a'
-      'ORDER BY a.ID_MOVIMENTO ASC')
+        '    ID_ENTRADA, ID_FORNECEDOR, NM_FORNECEDOR, NM_FANTASIA, CNPJ,' +
+        ' IE, '
+      '    CASE WHEN TIPO_MOVIMENTO = '#39'E'#39' THEN'
+      '        '#39'ENTRADA'#39
+      '    WHEN TIPO_MOVIMENTO = '#39'S'#39' THEN'
+      '        '#39'SAIDA'#39
+      '    END AS TIPO_MOVIMENTO'
+      'FROM ENTRADA_MATERIAL'
+      'ORDER BY ID_ENTRADA ASC')
     Left = 456
     Top = 1
-    object QryPesqID_MOVIMENTO: TIntegerField
-      FieldName = 'ID_MOVIMENTO'
-      Origin = 'ID_MOVIMENTO'
+    object QryPesqID_ENTRADA: TIntegerField
+      FieldName = 'ID_ENTRADA'
+      Origin = 'ID_ENTRADA'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
+    object QryPesqID_FORNECEDOR: TIntegerField
+      FieldName = 'ID_FORNECEDOR'
+      Origin = 'ID_FORNECEDOR'
+      Required = True
+    end
+    object QryPesqNM_FORNECEDOR: TStringField
+      FieldName = 'NM_FORNECEDOR'
+      Origin = 'NM_FORNECEDOR'
+      Required = True
+      Size = 100
+    end
+    object QryPesqNM_FANTASIA: TStringField
+      FieldName = 'NM_FANTASIA'
+      Origin = 'NM_FANTASIA'
+      Required = True
+      Size = 100
+    end
+    object QryPesqCNPJ: TStringField
+      FieldName = 'CNPJ'
+      Origin = 'CNPJ'
+      Required = True
+    end
+    object QryPesqIE: TStringField
+      FieldName = 'IE'
+      Origin = 'IE'
+      Required = True
+    end
     object QryPesqTIPO_MOVIMENTO: TStringField
+      AutoGenerateValue = arDefault
       FieldName = 'TIPO_MOVIMENTO'
       Origin = 'TIPO_MOVIMENTO'
-      Required = True
-      Size = 1
-    end
-    object QryPesqFL_CONFIRMACAO: TStringField
-      FieldName = 'FL_CONFIRMACAO'
-      Origin = 'FL_CONFIRMACAO'
-      Required = True
-      Size = 1
-    end
-    object QryPesqID_PESSOA: TIntegerField
-      FieldName = 'ID_PESSOA'
-      Origin = 'ID_PESSOA'
-      Required = True
+      ProviderFlags = []
+      ReadOnly = True
+      FixedChar = True
+      Size = 7
     end
   end
   object DsPesq: TDataSource

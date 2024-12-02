@@ -15,10 +15,6 @@ type
   TFrmPesqMovimento = class(TFrmPadrao)
     QryPesq: TFDQuery;
     DsPesq: TDataSource;
-    QryPesqID_MOVIMENTO: TIntegerField;
-    QryPesqTIPO_MOVIMENTO: TStringField;
-    QryPesqFL_CONFIRMACAO: TStringField;
-    QryPesqID_PESSOA: TIntegerField;
     Panel1: TPanel;
     DBGrid1: TDBGrid;
     PopupMenu1: TPopupMenu;
@@ -30,12 +26,22 @@ type
     btnEditar: TSpeedButton;
     Panel4: TPanel;
     btnNovo: TSpeedButton;
+    QryPesqID_ENTRADA: TIntegerField;
+    QryPesqID_FORNECEDOR: TIntegerField;
+    QryPesqNM_FORNECEDOR: TStringField;
+    QryPesqNM_FANTASIA: TStringField;
+    QryPesqCNPJ: TStringField;
+    QryPesqIE: TStringField;
+    QryPesqTIPO_MOVIMENTO: TStringField;
 
     procedure btnNovoEntradaClick(Sender: TObject);
 
     procedure SpeedButton1Click(Sender: TObject);
 
     procedure SpeedButton2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
+    procedure btnEditarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -51,14 +57,41 @@ implementation
 
 uses UFrmEntradaMovimento;
 
-procedure TFrmPesqMovimento.btnNovoEntradaClick(Sender: TObject);
+procedure TFrmPesqMovimento.btnEditarClick(Sender: TObject);
 begin
+  inherited;
   Try
     FrmEntradaMovimento := TFrmEntradaMovimento.Create(Self);
+    FrmEntradaMovimento.QrEntrada.Edit;
+    FrmEntradaMovimento.QrEntradaItem.Edit;
     FrmEntradaMovimento.Show;
   except
     FrmEntradaMovimento.Free;
   End;
+end;
+
+procedure TFrmPesqMovimento.btnNovoEntradaClick(Sender: TObject);
+begin
+  Try
+    FrmEntradaMovimento := TFrmEntradaMovimento.Create(Self);
+    FrmEntradaMovimento.QrEntrada.Insert;
+    FrmEntradaMovimento.Show;
+  except
+    FrmEntradaMovimento.Free;
+  End;
+end;
+
+procedure TFrmPesqMovimento.FormActivate(Sender: TObject);
+begin
+  inherited;
+  QryPesq.Refresh;
+  DBGrid1.Refresh;
+end;
+
+procedure TFrmPesqMovimento.FormShow(Sender: TObject);
+begin
+  inherited;
+  QryPesq.Open;
 end;
 
 procedure TFrmPesqMovimento.SpeedButton1Click(Sender: TObject);

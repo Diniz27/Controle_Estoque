@@ -97,7 +97,6 @@ type
     SpeedButton1: TSpeedButton;
     SpeedButton4: TSpeedButton;
     Label7: TLabel;
-    Label11: TLabel;
     DBRadioGroup1: TDBRadioGroup;
     QrEntradaTIPO_MOVIMENTO: TStringField;
     Label12: TLabel;
@@ -170,24 +169,30 @@ procedure TFrmEntradaMovimento.BtnConfirmaClick(Sender: TObject);
 begin
   inherited;
   try
-    if not QrEntrada.Connection.InTransaction then
-      QrEntrada.Connection.StartTransaction;
+    if PageControl1.ActivePageIndex = 0 then
+    begin
+      if not QrEntrada.Connection.InTransaction then
+        QrEntrada.Connection.StartTransaction;
 
-    QrEntrada.Connection.Commit;
+      QrEntrada.Connection.Commit;
+      QrEntrada.Refresh;
 
+      PageControl1.ActivePageIndex := 1;
+    end
+    else
+    if PageControl1.ActivePageIndex = 1 then
+    begin
+      if not QrEntradaItem.Connection.InTransaction then
+        QrEntradaItem.Connection.StartTransaction;
 
-    if not QrEntradaItem.Connection.InTransaction then
-      QrEntradaItem.Connection.StartTransaction;
-
-    QrEntradaItem.Connection.Commit;
-
-    QrEntrada.Refresh;
-    QrEntradaItem.Refresh;
+      QrEntradaItem.Connection.Commit;
+      QrEntradaItem.Refresh;
+    end;
 
     MessageDlg('Informação adicionada / editada com sucesso.', mtConfirmation, [mbOk], 0);
   finally
     BtnCancela.Enabled := False;
-    Close;
+//    Close;
   end;
 end;
 
@@ -198,8 +203,8 @@ begin
     FrmPesqFornecedor := TFrmPesqFornecedor.Create(Self);
     FrmPesqFornecedor.ShowModal;
 
-    if QrEntrada.State in [dsBrowse] then
-      QrEntrada.Insert;
+//    if QrEntrada.State in [dsBrowse] then
+//      QrEntrada.Insert;
 
     QrEntradaID_FORNECEDOR.Value := FrmPesqFornecedor.QrFornecedorID_PESSOA.Value;
     QrEntradaNM_FORNECEDOR.Value := FrmPesqFornecedor.QrFornecedorNM_RAZAOSOCIAL.Value;
@@ -266,8 +271,8 @@ begin
   QrEntrada.Open;
   QrEntradaItem.Open;
 
-  QrEntrada.Insert;
-  QrEntradaItem.Insert;
+//  QrEntrada.Insert;
+//  QrEntradaItem.Insert;
 end;
 
 procedure TFrmEntradaMovimento.QrEntradaBeforePost(DataSet: TDataSet);

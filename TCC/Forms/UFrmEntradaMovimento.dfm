@@ -397,19 +397,6 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
           Font.Style = [fsBold]
           ParentFont = False
         end
-        object Label11: TLabel
-          Left = 19
-          Top = 60
-          Width = 64
-          Height = 20
-          Caption = 'Produtos'
-          Font.Charset = DEFAULT_CHARSET
-          Font.Color = clHighlight
-          Font.Height = -15
-          Font.Name = 'Segoe UI'
-          Font.Style = [fsBold]
-          ParentFont = False
-        end
         object Panel1: TPanel
           Left = 3
           Top = 87
@@ -762,6 +749,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
     Top = 16
   end
   object QrEntrada: TFDQuery
+    Active = True
     BeforePost = QrEntradaBeforePost
     Connection = Dm.FDconexao
     SQL.Strings = (
@@ -770,9 +758,17 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
         '    ID_ENTRADA, ID_FORNECEDOR, NM_FORNECEDOR, NM_FANTASIA, CNPJ,' +
         ' IE, TIPO_MOVIMENTO'
       'FROM ENTRADA_MATERIAL'
+      'WHERE ID_ENTRADA = :ID_ENTRADA '
       'ORDER BY ID_ENTRADA')
     Left = 224
     Top = 24
+    ParamData = <
+      item
+        Name = 'ID_ENTRADA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
     object QrEntradaID_ENTRADA: TIntegerField
       FieldName = 'ID_ENTRADA'
       Origin = 'ID_ENTRADA'
@@ -913,6 +909,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
     Top = 16
   end
   object QrEntradaItem: TFDQuery
+    Active = True
     AfterInsert = QrEntradaItemAfterInsert
     IndexFieldNames = 'ID_ENTRADA'
     MasterSource = DsEntrada
