@@ -1,25 +1,22 @@
 inherited FrmPesqItem: TFrmPesqItem
   Caption = 'FrmPesqItem'
-  ClientWidth = 850
   OnShow = FormShow
   ExplicitWidth = 862
   TextHeight = 15
   inherited PnlCentral: TPanel
-    Width = 850
     ExplicitWidth = 846
     inherited PnlCancela: TPanel
-      Left = 708
-      ExplicitLeft = 704
+      Left = 704
+      ExplicitLeft = 700
     end
     inherited PnlConfirma: TPanel
-      Left = 600
-      ExplicitLeft = 596
+      Left = 596
+      ExplicitLeft = 592
       inherited BtnConfirma: TSpeedButton
         OnClick = BtnConfirmaClick
       end
     end
     inherited Panel1: TPanel
-      Width = 850
       ExplicitWidth = 846
       inherited DBGrid1: TDBGrid
         Width = 848
@@ -69,7 +66,6 @@ inherited FrmPesqItem: TFrmPesqItem
     end
   end
   inherited PnlTopo: TPanel
-    Width = 850
     ExplicitWidth = 846
     inherited Label2: TLabel
       Width = 35
@@ -77,7 +73,7 @@ inherited FrmPesqItem: TFrmPesqItem
       ExplicitWidth = 35
     end
     inherited BtnClose: TSpeedButton
-      Left = 768
+      Left = 764
       ExplicitLeft = 772
     end
   end

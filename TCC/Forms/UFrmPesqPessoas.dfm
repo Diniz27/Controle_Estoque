@@ -19,7 +19,7 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
       ExplicitWidth = 134
     end
     inherited BtnClose: TSpeedButton
-      Left = 992
+      Left = 988
       ExplicitLeft = 680
     end
   end
@@ -29,7 +29,7 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
     ExplicitWidth = 1058
     ExplicitHeight = 499
     object BtnPesq: TSpeedButton
-      Left = 738
+      Left = 734
       Top = 10
       Width = 23
       Height = 20
@@ -83,11 +83,6 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
           item
             Expanded = False
             FieldName = 'ID_PESSOA'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Segoe UI'
-            Font.Style = []
             Title.Caption = 'C'#243'd. Pessoa'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -100,11 +95,6 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
           item
             Expanded = False
             FieldName = 'NM_RAZAOSOCIAL'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Segoe UI'
-            Font.Style = []
             Title.Caption = 'Raz'#227'o Social'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -117,11 +107,6 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
           item
             Expanded = False
             FieldName = 'NM_TIPO'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Segoe UI'
-            Font.Style = []
             Title.Caption = 'Tipo Pessoa'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -134,11 +119,6 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
           item
             Expanded = False
             FieldName = 'NM_REDUZIDO'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Segoe UI'
-            Font.Style = []
             Title.Caption = 'Nome Reduzido'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -151,11 +131,6 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
           item
             Expanded = False
             FieldName = 'NM_CIDADE'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Segoe UI'
-            Font.Style = []
             Title.Caption = 'Cidade'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -168,11 +143,6 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
           item
             Expanded = False
             FieldName = 'NM_TELEFONE1'
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -12
-            Font.Name = 'Segoe UI'
-            Font.Style = []
             Title.Caption = 'N'#186' Telefone'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -187,14 +157,14 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
     object EdtPesq: TEdit
       Left = 150
       Top = 10
-      Width = 583
+      Width = 579
       Height = 23
       Anchors = [akLeft, akTop, akRight]
       TabOrder = 0
-      ExplicitWidth = 579
+      ExplicitWidth = 575
     end
     object Panel2: TPanel
-      Left = 791
+      Left = 787
       Top = 7
       Width = 115
       Height = 30
@@ -208,7 +178,7 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
       ParentBackground = False
       ParentFont = False
       TabOrder = 3
-      ExplicitLeft = 787
+      ExplicitLeft = 783
       object btnNovo: TSpeedButton
         Left = 1
         Top = 1
@@ -233,7 +203,7 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
       end
     end
     object Panel3: TPanel
-      Left = 914
+      Left = 910
       Top = 6
       Width = 115
       Height = 30
@@ -247,7 +217,7 @@ inherited FrmPesqPessoas: TFrmPesqPessoas
       ParentBackground = False
       ParentFont = False
       TabOrder = 4
-      ExplicitLeft = 910
+      ExplicitLeft = 906
       object btnEditar: TSpeedButton
         Left = 1
         Top = 1

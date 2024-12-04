@@ -69,7 +69,6 @@ begin
   FrmEntradaMovimento.QrItem.Open;
 
   Close;
-
 end;
 
 procedure TFrmPesqItem.Edit1Change(Sender: TObject);

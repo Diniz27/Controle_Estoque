@@ -8,23 +8,22 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1101
-    ExplicitWidth = 969
+    ExplicitWidth = 1097
     inherited Label2: TLabel
       Width = 137
       Caption = 'Entrada de Material'
       ExplicitWidth = 137
     end
     inherited BtnClose: TSpeedButton
-      Left = 1027
+      Left = 1023
       ExplicitLeft = 899
     end
   end
   inherited PnlCentral: TPanel
     Width = 1101
     Height = 575
-    ExplicitTop = 69
-    ExplicitWidth = 1101
-    ExplicitHeight = 575
+    ExplicitWidth = 1097
+    ExplicitHeight = 574
     DesignSize = (
       1101
       575)
@@ -61,7 +60,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
     object PageControl1: TPageControl
       Left = 0
       Top = 43
-      Width = 1101
+      Width = 1097
       Height = 524
       ActivePage = TabSheet2
       Anchors = [akLeft, akTop, akRight, akBottom]
@@ -75,20 +74,20 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
       ParentShowHint = False
       ShowHint = False
       TabOrder = 0
+      ExplicitWidth = 1093
+      ExplicitHeight = 523
       object TabSheet1: TTabSheet
         Caption = 'Dados Gerais'
         object Panel3: TPanel
           Left = 0
           Top = 0
-          Width = 1093
+          Width = 1089
           Height = 494
           Align = alClient
           BevelOuter = bvNone
           TabOrder = 0
-          ExplicitTop = 152
-          ExplicitHeight = 393
           DesignSize = (
-            1093
+            1089
             494)
           object Label7: TLabel
             Left = 3
@@ -166,7 +165,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
             ParentFont = False
           end
           object Panel4: TPanel
-            Left = 1428
+            Left = 1424
             Top = 6
             Width = 97
             Height = 35
@@ -194,7 +193,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
             end
           end
           object Panel5: TPanel
-            Left = 1317
+            Left = 1313
             Top = 6
             Width = 102
             Height = 35
@@ -225,7 +224,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
             end
           end
           object PnlConfirma: TPanel
-            Left = 847
+            Left = 843
             Top = 6
             Width = 102
             Height = 35
@@ -256,7 +255,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
             end
           end
           object PnlCancela: TPanel
-            Left = 963
+            Left = 959
             Top = 6
             Width = 97
             Height = 35
@@ -317,8 +316,8 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
             Top = 72
             Width = 469
             Height = 25
-            DataField = 'NM_RAZAOSOCIAL'
-            DataSource = DsFornecedor
+            DataField = 'NM_FORNECEDOR'
+            DataSource = DsEntrada
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -333,8 +332,8 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
             Top = 72
             Width = 406
             Height = 25
-            DataField = 'NM_REDUZIDO'
-            DataSource = DsFornecedor
+            DataField = 'NM_FANTASIA'
+            DataSource = DsEntrada
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -349,8 +348,8 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
             Top = 144
             Width = 225
             Height = 25
-            DataField = 'RG_IE'
-            DataSource = DsFornecedor
+            DataField = 'IE'
+            DataSource = DsEntrada
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -365,8 +364,8 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
             Top = 144
             Width = 225
             Height = 25
-            DataField = 'CPF_CNPJ'
-            DataSource = DsFornecedor
+            DataField = 'CNPJ'
+            DataSource = DsEntrada
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -382,7 +381,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
         Caption = 'Itens'
         ImageIndex = 1
         DesignSize = (
-          1093
+          1089
           494)
         object Label1: TLabel
           Left = 3
@@ -400,11 +399,12 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
         object Panel1: TPanel
           Left = 3
           Top = 87
-          Width = 1086
+          Width = 1082
           Height = 82
           Anchors = [akLeft, akTop, akRight]
           BevelOuter = bvNone
           TabOrder = 0
+          ExplicitWidth = 1078
           object Label3: TLabel
             Left = 16
             Top = 9
@@ -460,7 +460,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
             Width = 471
             Height = 25
             DataField = 'NM_PRODUTO'
-            DataSource = DsItem
+            DataSource = DsEntradaItem
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -475,7 +475,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
             Width = 278
             Height = 25
             DataField = 'NM_PRODUTO_REDU'
-            DataSource = DsItem
+            DataSource = DsEntradaItem
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -491,8 +491,8 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
             Top = 32
             Width = 111
             Height = 25
-            DataField = 'QN_ESTOQUE'
-            DataSource = DsItem
+            DataField = 'QN_QUANTIDADE'
+            DataSource = DsEntradaItem
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clWindowText
             Font.Height = -13
@@ -507,11 +507,12 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
         object DBGrid1: TDBGrid
           Left = 0
           Top = 192
-          Width = 1093
+          Width = 1089
           Height = 302
           Align = alBottom
           Anchors = [akLeft, akTop, akRight, akBottom]
           DataSource = DsEntradaItem
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
           TabOrder = 1
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
@@ -541,7 +542,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
             end>
         end
         object Panel2: TPanel
-          Left = 847
+          Left = 843
           Top = 6
           Width = 102
           Height = 35
@@ -549,6 +550,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
           Color = clHighlight
           ParentBackground = False
           TabOrder = 2
+          ExplicitLeft = 839
           object BtnConfirmaItem: TSpeedButton
             Left = 1
             Top = 1
@@ -572,13 +574,14 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
           end
         end
         object Panel7: TPanel
-          Left = 963
+          Left = 959
           Top = 6
           Width = 97
           Height = 35
           Anchors = [akTop, akRight]
           ParentBackground = False
           TabOrder = 3
+          ExplicitLeft = 955
           object BtnCancelaItem: TSpeedButton
             Left = 1
             Top = 1
@@ -749,16 +752,20 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
     Top = 16
   end
   object QrEntrada: TFDQuery
-    Active = True
     BeforePost = QrEntradaBeforePost
+    MasterSource = FrmPesqMovimento.DsPesq
+    MasterFields = 'ID_ENTRADA'
+    DetailFields = 'ID_ENTRADA'
     Connection = Dm.FDconexao
+    FetchOptions.AssignedValues = [evCache]
+    FetchOptions.Cache = [fiBlobs, fiMeta]
     SQL.Strings = (
       'SELECT '
       
         '    ID_ENTRADA, ID_FORNECEDOR, NM_FORNECEDOR, NM_FANTASIA, CNPJ,' +
         ' IE, TIPO_MOVIMENTO'
       'FROM ENTRADA_MATERIAL'
-      'WHERE ID_ENTRADA = :ID_ENTRADA '
+      'WHERE ID_ENTRADA = :ID_ENTRADA'
       'ORDER BY ID_ENTRADA')
     Left = 224
     Top = 24
@@ -822,6 +829,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
     Top = 16
   end
   object QrItem: TFDQuery
+    AfterOpen = QrItemAfterOpen
     Connection = Dm.FDconexao
     SQL.Strings = (
       'SELECT '
@@ -909,9 +917,7 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
     Top = 16
   end
   object QrEntradaItem: TFDQuery
-    Active = True
-    AfterInsert = QrEntradaItemAfterInsert
-    IndexFieldNames = 'ID_ENTRADA'
+    BeforePost = QrEntradaItemBeforePost
     MasterSource = DsEntrada
     MasterFields = 'ID_ENTRADA'
     Connection = Dm.FDconexao
@@ -922,9 +928,18 @@ inherited FrmEntradaMovimento: TFrmEntradaMovimento
         'TIDADE'
       'FROM '
       '    ENTRADA_MATERIAL_ITEM'
+      'WHERE'
+      '    ID_ENTRADA = :ID_ENTRADA'
       'ORDER BY ID_PRODUTO DESC')
     Left = 224
     Top = 72
+    ParamData = <
+      item
+        Name = 'ID_ENTRADA'
+        DataType = ftInteger
+        ParamType = ptInput
+        Value = Null
+      end>
     object QrEntradaItemID_ENTRADA: TIntegerField
       FieldName = 'ID_ENTRADA'
       Origin = 'ID_ENTRADA'

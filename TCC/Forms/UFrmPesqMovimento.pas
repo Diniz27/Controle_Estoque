@@ -63,7 +63,7 @@ begin
   Try
     FrmEntradaMovimento := TFrmEntradaMovimento.Create(Self);
     FrmEntradaMovimento.QrEntrada.Edit;
-    FrmEntradaMovimento.QrEntradaItem.Edit;
+    FrmEntradaMovimento.tipo := 'E';
     FrmEntradaMovimento.Show;
   except
     FrmEntradaMovimento.Free;
@@ -75,6 +75,7 @@ begin
   Try
     FrmEntradaMovimento := TFrmEntradaMovimento.Create(Self);
     FrmEntradaMovimento.QrEntrada.Insert;
+    FrmEntradaMovimento.tipo := 'I';
     FrmEntradaMovimento.Show;
   except
     FrmEntradaMovimento.Free;

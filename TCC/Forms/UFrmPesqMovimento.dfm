@@ -4,7 +4,6 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
   OnActivate = FormActivate
   OnShow = FormShow
   ExplicitWidth = 1073
-  ExplicitHeight = 480
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1061
@@ -18,7 +17,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
       ExplicitWidth = 171
     end
     inherited BtnClose: TSpeedButton
-      Left = 979
+      Left = 975
       ExplicitLeft = 772
     end
   end
@@ -26,7 +25,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
     Width = 1061
     ExplicitWidth = 1057
     object BtnPesq: TSpeedButton
-      Left = 710
+      Left = 706
       Top = 10
       Width = 23
       Height = 20
@@ -40,18 +39,17 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
       Left = 0
       Top = 46
       Width = 1061
-      Height = 331
+      Height = 330
       Align = alBottom
       Anchors = [akLeft, akTop, akRight, akBottom]
       BevelOuter = bvNone
       TabOrder = 0
       ExplicitWidth = 1057
-      ExplicitHeight = 330
       object DBGrid1: TDBGrid
         Left = 0
         Top = 0
         Width = 1061
-        Height = 331
+        Height = 330
         Align = alClient
         DataSource = DsPesq
         Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgConfirmDelete, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -126,14 +124,14 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
     object EdtPesq: TEdit
       Left = 150
       Top = 10
-      Width = 555
+      Width = 551
       Height = 23
       Anchors = [akLeft, akTop, akRight]
       TabOrder = 2
-      ExplicitWidth = 551
+      ExplicitWidth = 547
     end
     object Panel3: TPanel
-      Left = 910
+      Left = 906
       Top = 7
       Width = 115
       Height = 30
@@ -147,7 +145,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
       ParentBackground = False
       ParentFont = False
       TabOrder = 3
-      ExplicitLeft = 906
+      ExplicitLeft = 902
       object btnEditar: TSpeedButton
         Left = 1
         Top = 1
@@ -169,7 +167,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
       end
     end
     object Panel4: TPanel
-      Left = 787
+      Left = 783
       Top = 7
       Width = 115
       Height = 30
@@ -183,7 +181,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
       ParentBackground = False
       ParentFont = False
       TabOrder = 4
-      ExplicitLeft = 783
+      ExplicitLeft = 779
       object btnNovo: TSpeedButton
         Left = 1
         Top = 1

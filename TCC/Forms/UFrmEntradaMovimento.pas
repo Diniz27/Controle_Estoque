@@ -116,12 +116,15 @@ type
     procedure BtnPesqItemClick(Sender: TObject);
     procedure DBEdit2Change(Sender: TObject);
     procedure DBEdit5Exit(Sender: TObject);
-    procedure QrEntradaItemAfterInsert(DataSet: TDataSet);
     procedure SpeedButton1Click(Sender: TObject);
     procedure SpeedButton4Click(Sender: TObject);
+    procedure QrItemAfterOpen(DataSet: TDataSet);
+    procedure QrEntradaItemBeforePost(DataSet: TDataSet);
   private
     { Private declarations }
   public
+    var
+      tipo :string;
     { Public declarations }
   end;
 
@@ -162,6 +165,15 @@ begin
 //  QrEntrada.Cancel;
 //  QrEntradaItem.Cancel;
 
+  if QrEntrada.State in [DsEdit, DsInsert] then
+    QrEntrada.Cancel;
+  QrEntrada.Refresh;
+
+  if QrEntradaItem.State in [DsEdit, DsInsert] then
+    QrEntradaItem.Cancel;
+  QrEntradaItem.Refresh;
+
+
   Close;
 end;
 
@@ -175,7 +187,15 @@ begin
         QrEntrada.Connection.StartTransaction;
 
       QrEntrada.Connection.Commit;
-      QrEntrada.Refresh;
+//      QrEntrada.Refresh;
+
+      if Tipo = 'E' then
+        QrEntradaItem.Edit
+      Else
+      if tipo = 'I' then
+        QrEntradaItem.Insert;
+
+      QrEntradaItem.Refresh;
 
       PageControl1.ActivePageIndex := 1;
     end
@@ -202,9 +222,6 @@ begin
   Try
     FrmPesqFornecedor := TFrmPesqFornecedor.Create(Self);
     FrmPesqFornecedor.ShowModal;
-
-//    if QrEntrada.State in [dsBrowse] then
-//      QrEntrada.Insert;
 
     QrEntradaID_FORNECEDOR.Value := FrmPesqFornecedor.QrFornecedorID_PESSOA.Value;
     QrEntradaNM_FORNECEDOR.Value := FrmPesqFornecedor.QrFornecedorNM_RAZAOSOCIAL.Value;
@@ -236,7 +253,6 @@ begin
   QrEntradaItemID_PRODUTO.Value := QrItemID_PRODUTO.Value;
   QrEntradaItemNM_PRODUTO.Value := QrItemNM_PRODUTO.Value;
   QrEntradaItemNM_PRODUTO_REDU.Value := QrItemNM_PRODUTO_REDU.Value;
-  QrEntradaItemQN_QUANTIDADE.Value := QrItemQN_ESTOQUE.Value;
 
   QrEntradaItem.Post;
 
@@ -249,6 +265,7 @@ begin
   begin
     BtnPesqItem.Enabled := False;
     DBEdit5.ReadOnly := True;
+    QrItem.Close;
   end;
 end;
 
@@ -266,13 +283,8 @@ begin
   PageControl1.ActivePageIndex := 0;
   SpeedButton1.Enabled := False;
 
-
-
   QrEntrada.Open;
   QrEntradaItem.Open;
-
-//  QrEntrada.Insert;
-//  QrEntradaItem.Insert;
 end;
 
 procedure TFrmEntradaMovimento.QrEntradaBeforePost(DataSet: TDataSet);
@@ -292,24 +304,44 @@ begin
   QrEntradaID_ENTRADA.AsInteger := QrTemp.FieldByName('MAX').AsInteger + 1;
 end;
 
-procedure TFrmEntradaMovimento.QrEntradaItemAfterInsert(DataSet: TDataSet);
+procedure TFrmEntradaMovimento.QrEntradaItemBeforePost(DataSet: TDataSet);
 begin
   inherited;
   if QrEntradaItem.Eof then
     Exit;
 
-  QrEntradaItem.First;
-  while not QrEntradaItem.Eof do
-  begin
-    if QrItemID_PRODUTO.Value = QrEntradaItemID_PRODUTO.Value then
-    begin
-      MessageDlg('Produto já adicionado.', mtConfirmation, [mbOk], 0);
-      Abort;
-    end;
+  if (QrItemID_PRODUTO.IsNull) or (QrEntradaID_ENTRADA.IsNull) then
+    Exit;
 
-    QrEntradaItem.Next;
+  with QrTemp do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Text := 'SELECT ID_PRODUTO          ' +
+                'FROM ENTRADA_MATERIAL_ITEM ' +
+                'WHERE ID_ENTRADA =         ' + QrEntradaID_ENTRADA.AsString +
+                '      AND ID_PRODUTO =     ' + QrItemID_PRODUTO.AsString;
+    Open;
   end;
 
+  if QrTemp.RecordCount > 0 then
+  begin
+    MessageDlg('Produto já adicionado.', mtConfirmation, [mbOk], 0);
+
+    if QrEntradaItem.State in [DsEdit, DsInsert] then
+      QrEntradaItem.Cancel;
+    QrEntradaItem.Refresh;
+    Exit;
+  end;
+
+end;
+
+procedure TFrmEntradaMovimento.QrItemAfterOpen(DataSet: TDataSet);
+begin
+  inherited;
+  QrEntradaItemID_PRODUTO.Value := QrItemID_PRODUTO.Value;
+  QrEntradaItemNM_PRODUTO.Value := QrItemNM_PRODUTO.Value;
+  QrEntradaItemNM_PRODUTO_REDU.Value := QrItemNM_PRODUTO_REDU.Value;
 end;
 
 procedure TFrmEntradaMovimento.SpeedButton1Click(Sender: TObject);
@@ -340,6 +372,11 @@ begin
       Exit;
     end;
 
+    if Tipo = 'E' then
+      QrEntradaItem.Edit
+    Else
+    if tipo = 'I' then
+      QrEntradaItem.Insert;
 
     Try
       FrmPesqItem := TFrmPesqItem.Create(Self);
