@@ -152,9 +152,6 @@ Coordinates=947,56,182,36
 [QrItemNM_PRODUTO_REDU]
 Coordinates=947,111,187,36
 
-[QrEntradaCNPJ]
-Coordinates=302,1575,107,36
-
 [TabSheet2]
 Coordinates=957,608,77,36
 
@@ -200,23 +197,14 @@ Coordinates=947,386,137,36
 [QrEntradaItemQN_QUANTIDADE]
 Coordinates=947,441,208,36
 
-[QrEntradaID_FORNECEDOR]
-Coordinates=947,496,184,36
-
 [BtnCancela]
 Coordinates=722,608,81,36
 
 [SpeedButton3]
 Coordinates=616,608,96,36
 
-[QrEntradaNM_FANTASIA]
-Coordinates=947,661,163,36
-
 [DBGrid1]
 Coordinates=542,608,64,36
-
-[QrEntradaIE]
-Coordinates=947,771,86,36
 
 [Panel2]
 Coordinates=953,540,55,58
@@ -226,9 +214,6 @@ Coordinates=446,608,86,36
 
 [Label5]
 Coordinates=522,540,53,58
-
-[QrEntradaID_ENTRADA]
-Coordinates=947,881,154,36
 
 [Panel7]
 Coordinates=1081,10,55,58
@@ -242,9 +227,6 @@ Coordinates=374,608,62,36
 [PnlCancela]
 Coordinates=703,540,80,58
 
-[QrEntradaNM_FORNECEDOR]
-Coordinates=947,1101,191,36
-
 [BtnPesqItem]
 Coordinates=170,608,88,36
 
@@ -255,7 +237,7 @@ Coordinates=947,1211,115,36
 Coordinates=83,608,77,36
 
 []
-Coordinates=10,540,53,58
+Coordinates=947,881,154,36
 
 [BtnConfirmaItem]
 Coordinates=268,608,96,36

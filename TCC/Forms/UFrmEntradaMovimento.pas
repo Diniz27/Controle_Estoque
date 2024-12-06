@@ -40,12 +40,6 @@ type
     QrEntrada: TFDQuery;
     DsEntrada: TDataSource;
     QrTemp: TFDQuery;
-    QrEntradaID_ENTRADA: TIntegerField;
-    QrEntradaID_FORNECEDOR: TIntegerField;
-    QrEntradaNM_FORNECEDOR: TStringField;
-    QrEntradaNM_FANTASIA: TStringField;
-    QrEntradaCNPJ: TStringField;
-    QrEntradaIE: TStringField;
     QrItem: TFDQuery;
     QrItemID_PRODUTO: TIntegerField;
     QrItemNM_PRODUTO: TStringField;
@@ -98,7 +92,6 @@ type
     SpeedButton4: TSpeedButton;
     Label7: TLabel;
     DBRadioGroup1: TDBRadioGroup;
-    QrEntradaTIPO_MOVIMENTO: TStringField;
     Label12: TLabel;
     DBEdit6: TDBEdit;
     Label13: TLabel;
@@ -108,6 +101,14 @@ type
     DBEdit4: TDBEdit;
     Label9: TLabel;
     DBEdit3: TDBEdit;
+    QrEntradaID_ENTRADA: TIntegerField;
+    QrEntradaID_PESSOA: TIntegerField;
+    QrEntradaNM_RAZAOSOCIAL: TStringField;
+    QrEntradaNM_REDUZIDO: TStringField;
+    QrEntradaTIPO_PESSOA: TStringField;
+    QrEntradaCPF_CNPJ: TStringField;
+    QrEntradaRG_IE: TStringField;
+    QrEntradaTIPO_MOVIMENTO: TStringField;
     procedure BtnCancelaClick(Sender: TObject);
     procedure BtnPesqClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -120,6 +121,7 @@ type
     procedure SpeedButton4Click(Sender: TObject);
     procedure QrItemAfterOpen(DataSet: TDataSet);
     procedure QrEntradaItemBeforePost(DataSet: TDataSet);
+    procedure QrEntradaItemBeforeOpen(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -135,7 +137,7 @@ implementation
 
 {$R *.dfm}
 
-uses UFrmPesqFornecedor, UFrmPesqItem;
+uses UFrmPesqPessoaMovimento, UFrmPesqItem;
 
 procedure TFrmEntradaMovimento.BtnCancelaClick(Sender: TObject);
 begin
@@ -220,17 +222,27 @@ procedure TFrmEntradaMovimento.BtnPesqClick(Sender: TObject);
 begin
   inherited;
   Try
-    FrmPesqFornecedor := TFrmPesqFornecedor.Create(Self);
-    FrmPesqFornecedor.ShowModal;
+    if DBRadioGroup1.ItemIndex = -1 then
+    begin
+      MessageDlg('Necessário escolher o tipo de movimentação.', mtConfirmation, [mbOk], 0);
+      Exit;
+    end;
 
-    QrEntradaID_FORNECEDOR.Value := FrmPesqFornecedor.QrFornecedorID_PESSOA.Value;
-    QrEntradaNM_FORNECEDOR.Value := FrmPesqFornecedor.QrFornecedorNM_RAZAOSOCIAL.Value;
-    QrEntradaNM_FANTASIA.Value := FrmPesqFornecedor.QrFornecedorNM_REDUZIDO.Value;
-    QrEntradaCNPJ.Value := FrmPesqFornecedor.QrFornecedorCPF_CNPJ.Value;
-    QrEntradaIE.Value := FrmPesqFornecedor.QrFornecedorRG_IE.Value;
+
+    FrmPesqPessoaMovimento := TFrmPesqPessoaMovimento.Create(Self);
+    FrmPesqPessoaMovimento.ShowModal;
+
+    QrEntradaID_PESSOA.Value := FrmPesqPessoaMovimento.QrPessoaID_PESSOA.Value;
+    QrEntradaNM_RAZAOSOCIAL.Value := FrmPesqPessoaMovimento.QrPessoaNM_RAZAOSOCIAL.Value;
+    QrEntradaNM_REDUZIDO.Value := FrmPesqPessoaMovimento.QrPessoaNM_REDUZIDO.Value;
+    QrEntradaCPF_CNPJ.Value := FrmPesqPessoaMovimento.QrPessoaCPF_CNPJ.Value;
+    QrEntradaRG_IE.Value := FrmPesqPessoaMovimento.QrPessoaRG_IE.Value;
+
+    ShowMessage(QrEntradaTIPO_MOVIMENTO.AsString);
+
     QrEntrada.Post;
   except
-    FrmPesqFornecedor.Free;
+    FrmPesqPessoaMovimento.Free;
   End;
 end;
 
@@ -302,6 +314,12 @@ begin
   end;
 
   QrEntradaID_ENTRADA.AsInteger := QrTemp.FieldByName('MAX').AsInteger + 1;
+end;
+
+procedure TFrmEntradaMovimento.QrEntradaItemBeforeOpen(DataSet: TDataSet);
+begin
+  inherited;
+  QrEntradaItem.ParamByName('ID_ENTRADA').Value := QrEntradaID_ENTRADA.Value;
 end;
 
 procedure TFrmEntradaMovimento.QrEntradaItemBeforePost(DataSet: TDataSet);

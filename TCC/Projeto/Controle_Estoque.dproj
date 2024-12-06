@@ -185,8 +185,8 @@
             <Form>FrmPesqPadrao</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="..\Forms\UFrmPesqFornecedor.pas">
-            <Form>FrmPesqFornecedor</Form>
+        <DCCReference Include="..\Forms\UFrmPesqPessoaMovimento.pas">
+            <Form>FrmPesqPessoaMovimento</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\Forms\UFrmPesqItem.pas">

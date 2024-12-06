@@ -4,6 +4,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
   OnActivate = FormActivate
   OnShow = FormShow
   ExplicitWidth = 1073
+  ExplicitHeight = 480
   TextHeight = 15
   inherited PnlTopo: TPanel
     Width = 1061
@@ -33,11 +34,12 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
       ImageIndex = 1
       Images = ImageList1
       HotImageIndex = 1
+      OnClick = BtnPesqClick
       ExplicitLeft = 718
     end
     object Panel1: TPanel
       Left = 0
-      Top = 46
+      Top = 47
       Width = 1061
       Height = 330
       Align = alBottom
@@ -45,6 +47,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
       BevelOuter = bvNone
       TabOrder = 0
       ExplicitWidth = 1057
+      ExplicitHeight = 329
       object DBGrid1: TDBGrid
         Left = 0
         Top = 0
@@ -75,7 +78,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
           end
           item
             Expanded = False
-            FieldName = 'ID_FORNECEDOR'
+            FieldName = 'ID_PESSOA'
             Title.Caption = 'C'#243'd. Fornecedor'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -86,7 +89,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
           end
           item
             Expanded = False
-            FieldName = 'NM_FORNECEDOR'
+            FieldName = 'NM_RAZAOSOCIAL'
             Title.Caption = 'Nome Fornecedor'
             Title.Font.Charset = DEFAULT_CHARSET
             Title.Font.Color = clWindowText
@@ -104,6 +107,7 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
             Title.Font.Height = -12
             Title.Font.Name = 'Segoe UI'
             Title.Font.Style = [fsBold]
+            Width = 125
             Visible = True
           end>
       end
@@ -115,10 +119,11 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
       Height = 23
       ItemIndex = 0
       TabOrder = 1
-      Text = 'C'#243'd. Pessoa'
+      Text = 'C'#243'd. Movimenta'#231#227'o'
       Items.Strings = (
-        'C'#243'd. Pessoa'
+        'C'#243'd. Movimenta'#231#227'o'
         'Nome Pessoa'
+        'Tipo Movimenta'#231#227'o'
         'Tipo Pessoa')
     end
     object EdtPesq: TEdit
@@ -214,8 +219,8 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
     SQL.Strings = (
       'SELECT '
       
-        '    ID_ENTRADA, ID_FORNECEDOR, NM_FORNECEDOR, NM_FANTASIA, CNPJ,' +
-        ' IE, '
+        '    ID_ENTRADA, ID_PESSOA, NM_RAZAOSOCIAL, NM_REDUZIDO, TIPO_PES' +
+        'SOA, CPF_CNPJ, RG_IE,'
       '    CASE WHEN TIPO_MOVIMENTO = '#39'E'#39' THEN'
       '        '#39'ENTRADA'#39
       '    WHEN TIPO_MOVIMENTO = '#39'S'#39' THEN'
@@ -231,31 +236,37 @@ inherited FrmPesqMovimento: TFrmPesqMovimento
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
       Required = True
     end
-    object QryPesqID_FORNECEDOR: TIntegerField
-      FieldName = 'ID_FORNECEDOR'
-      Origin = 'ID_FORNECEDOR'
+    object QryPesqID_PESSOA: TIntegerField
+      FieldName = 'ID_PESSOA'
+      Origin = 'ID_PESSOA'
       Required = True
     end
-    object QryPesqNM_FORNECEDOR: TStringField
-      FieldName = 'NM_FORNECEDOR'
-      Origin = 'NM_FORNECEDOR'
-      Required = True
-      Size = 100
-    end
-    object QryPesqNM_FANTASIA: TStringField
-      FieldName = 'NM_FANTASIA'
-      Origin = 'NM_FANTASIA'
+    object QryPesqNM_RAZAOSOCIAL: TStringField
+      FieldName = 'NM_RAZAOSOCIAL'
+      Origin = 'NM_RAZAOSOCIAL'
       Required = True
       Size = 100
     end
-    object QryPesqCNPJ: TStringField
-      FieldName = 'CNPJ'
-      Origin = 'CNPJ'
+    object QryPesqNM_REDUZIDO: TStringField
+      FieldName = 'NM_REDUZIDO'
+      Origin = 'NM_REDUZIDO'
+      Required = True
+      Size = 100
+    end
+    object QryPesqTIPO_PESSOA: TStringField
+      FieldName = 'TIPO_PESSOA'
+      Origin = 'TIPO_PESSOA'
+      Required = True
+      Size = 1
+    end
+    object QryPesqCPF_CNPJ: TStringField
+      FieldName = 'CPF_CNPJ'
+      Origin = 'CPF_CNPJ'
       Required = True
     end
-    object QryPesqIE: TStringField
-      FieldName = 'IE'
-      Origin = 'IE'
+    object QryPesqRG_IE: TStringField
+      FieldName = 'RG_IE'
+      Origin = 'RG_IE'
       Required = True
     end
     object QryPesqTIPO_MOVIMENTO: TStringField

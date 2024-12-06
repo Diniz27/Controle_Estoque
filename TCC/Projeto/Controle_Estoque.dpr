@@ -16,7 +16,7 @@ uses
   UFrmPesqMovimento in '..\Forms\UFrmPesqMovimento.pas' {FrmPesqMovimento},
   UFrmEntradaMovimento in '..\Forms\UFrmEntradaMovimento.pas' {FrmEntradaMovimento},
   UFrmPesqPadrao in '..\Forms\UFrmPesqPadrao.pas' {FrmPesqPadrao},
-  UFrmPesqFornecedor in '..\Forms\UFrmPesqFornecedor.pas' {FrmPesqFornecedor},
+  UFrmPesqPessoaMovimento in '..\Forms\UFrmPesqPessoaMovimento.pas' {FrmPesqPessoaMovimento},
   UFrmPesqItem in '..\Forms\UFrmPesqItem.pas' {FrmPesqItem};
 
 {$R *.res}

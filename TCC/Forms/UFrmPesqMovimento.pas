@@ -27,11 +27,12 @@ type
     Panel4: TPanel;
     btnNovo: TSpeedButton;
     QryPesqID_ENTRADA: TIntegerField;
-    QryPesqID_FORNECEDOR: TIntegerField;
-    QryPesqNM_FORNECEDOR: TStringField;
-    QryPesqNM_FANTASIA: TStringField;
-    QryPesqCNPJ: TStringField;
-    QryPesqIE: TStringField;
+    QryPesqID_PESSOA: TIntegerField;
+    QryPesqNM_RAZAOSOCIAL: TStringField;
+    QryPesqNM_REDUZIDO: TStringField;
+    QryPesqTIPO_PESSOA: TStringField;
+    QryPesqCPF_CNPJ: TStringField;
+    QryPesqRG_IE: TStringField;
     QryPesqTIPO_MOVIMENTO: TStringField;
 
     procedure btnNovoEntradaClick(Sender: TObject);
@@ -42,6 +43,7 @@ type
     procedure FormShow(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
+    procedure BtnPesqClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -80,6 +82,109 @@ begin
   except
     FrmEntradaMovimento.Free;
   End;
+end;
+
+procedure TFrmPesqMovimento.BtnPesqClick(Sender: TObject);
+begin
+  inherited;
+  if EdtPesq.Text = '' then
+    Exit;
+
+
+  if CbPesq.ItemIndex = 0 then
+  begin
+    with QryPesq do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Text := 'SELECT                                                             '+
+                  '  ID_ENTRADA, ID_FORNECEDOR, NM_FORNECEDOR, NM_FANTASIA, CNPJ, IE, '+
+                  '  CASE WHEN TIPO_MOVIMENTO = ''E'' THEN                            '+
+                  '      ''ENTRADA''                                                  '+
+                  '  WHEN TIPO_MOVIMENTO = ''S'' THEN                                 '+
+                  '      ''SAIDA''                                                    '+
+                  '  END AS TIPO_MOVIMENTO                                            '+
+                  'FROM ENTRADA_MATERIAL                                              '+
+                  'WHERE ID_ENTRADA = :ID_ENTRADA                                     '+
+                  'ORDER BY ID_ENTRADA ASC                                            ';
+        ParamByName('ID_ENTRADA').AsInteger := StrToInt(EdtPesq.Text);
+
+      Open;
+    end;
+  end
+  else if CbPesq.ItemIndex = 1 then
+  begin
+    with QryPesq do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Text := 'SELECT                                                             '+
+                  '  ID_ENTRADA, ID_FORNECEDOR, NM_FORNECEDOR, NM_FANTASIA, CNPJ, IE, '+
+                  '  CASE WHEN TIPO_MOVIMENTO = ''E'' THEN                            '+
+                  '      ''ENTRADA''                                                  '+
+                  '  WHEN TIPO_MOVIMENTO = ''S'' THEN                                 '+
+                  '      ''SAIDA''                                                    '+
+                  '  END AS TIPO_MOVIMENTO                                            '+
+                  'FROM ENTRADA_MATERIAL                                              '+
+                  'WHERE NM_FORNECEDOR LIKE :NM_FORNECEDOR                            '+
+                  'ORDER BY ID_ENTRADA ASC                                            ';
+      ParamByName('NM_FORNECEDOR').AsString := '%' + EdtPesq.Text + '%';
+
+      Open;
+    end;
+  end
+  else if CbPesq.ItemIndex = 2 then
+  begin
+    with QryPesq do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Text := 'SELECT                                                             '+
+                  '  ID_ENTRADA, ID_FORNECEDOR, NM_FORNECEDOR, NM_FANTASIA, CNPJ, IE, '+
+                  '  CASE WHEN TIPO_MOVIMENTO = ''E'' THEN                            '+
+                  '      ''ENTRADA''                                                  '+
+                  '  WHEN TIPO_MOVIMENTO = ''S'' THEN                                 '+
+                  '      ''SAIDA''                                                    '+
+                  '  END AS TIPO_MOVIMENTO                                            '+
+                  'FROM ENTRADA_MATERIAL                                              '+
+                  'WHERE UPPER(                                                       '+
+                  '          CASE WHEN TIPO_MOVIMENTO = ''E'' THEN ''ENTRADA''        '+
+                  '               WHEN TIPO_MOVIMENTO = ''S'' THEN ''SAIDA''          '+
+                  '          END) LIKE :TIPO_MOVIMENTO                                '+
+                  'ORDER BY ID_ENTRADA ASC                                            ';
+
+      ParamByName('TIPO_MOVIMENTO').AsString := '%' + UpperCase(EdtPesq.Text) + '%';
+
+      Open;
+    end;
+
+  end
+  else if CbPesq.ItemIndex = 3 then
+  begin
+    with QryPesq do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Text := 'SELECT                                                             '+
+                  '  ID_ENTRADA, ID_FORNECEDOR, NM_FORNECEDOR, NM_FANTASIA, CNPJ, IE, '+
+                  '  CASE WHEN TIPO_MOVIMENTO = ''E'' THEN                            '+
+                  '      ''ENTRADA''                                                  '+
+                  '  WHEN TIPO_MOVIMENTO = ''S'' THEN                                 '+
+                  '      ''SAIDA''                                                    '+
+                  '  END AS TIPO_MOVIMENTO                                            '+
+                  'FROM ENTRADA_MATERIAL                                              '+
+                  'WHERE UPPER(                                                       '+
+                  '          CASE WHEN TIPO_MOVIMENTO = ''E'' THEN ''ENTRADA''        '+
+                  '               WHEN TIPO_MOVIMENTO = ''S'' THEN ''SAIDA''          '+
+                  '          END) LIKE :TIPO_MOVIMENTO                                '+
+                  'ORDER BY ID_ENTRADA ASC                                            ';
+
+      ParamByName('TIPO_MOVIMENTO').AsString := '%' + UpperCase(EdtPesq.Text) + '%';
+
+      Open;
+    end;
+
+  end;
 end;
 
 procedure TFrmPesqMovimento.FormActivate(Sender: TObject);
